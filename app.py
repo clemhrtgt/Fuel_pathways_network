@@ -131,6 +131,7 @@ def update_graph(pathways, feedstocks, processes, energies):
         line=dict(width=1, color="#888"),
         hoverinfo="none",
         mode="lines"
+        showlegend=False
     )
 
     node_x, node_y, labels, node_colors = [], [], [], []
@@ -154,7 +155,8 @@ def update_graph(pathways, feedstocks, processes, energies):
             color=node_colors,
             size=20,
             line_width=2
-        )
+        ),
+        showlegend=False
     )
 
     # Legend
