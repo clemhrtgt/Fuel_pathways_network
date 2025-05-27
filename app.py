@@ -6,8 +6,6 @@ from dash import Dash, dcc, html, Input, Output
 # Load and clean data
 df = pd.read_csv("data.csv")
 df.columns = df.columns.str.strip()
-
-# Replace newlines and extra spaces in strings
 df = df.applymap(lambda x: x.strip().replace('\n', ' ') if isinstance(x, str) else x)
 
 # Column order for the path
@@ -20,16 +18,15 @@ columns = [
     "Fuel Pathway Code"
 ]
 
-# Initialize graph
-G = nx.DiGraph()
-
-# Add edges from each row
-for _, row in df.iterrows():
-    for i in range(len(columns) - 1):
-        src = row[columns[i]]
-        tgt = row[columns[i + 1]]
-        if pd.notna(src) and pd.notna(tgt):
-            G.add_edge(src, tgt)
+# Color map for columns
+column_colors = {
+    "Group": "#1f77b4",
+    "Feedstock Sources": "#2ca02c",
+    "Process Type": "#ff7f0e",
+    "Energy  used  in  the process": "#9467bd",
+    "Fuel type": "#d62728",
+    "Fuel Pathway Code": "#7f7f7f"
+}
 
 # Dash app
 app = Dash(__name__)
@@ -48,7 +45,6 @@ app.layout = html.Div([
             multi=True
         ),
     ]),
-
     html.Div([
         html.Label("Filter by Feedstock Source"),
         dcc.Dropdown(
@@ -57,7 +53,6 @@ app.layout = html.Div([
             multi=True
         ),
     ]),
-
     html.Div([
         html.Label("Filter by Process Type"),
         dcc.Dropdown(
@@ -66,7 +61,6 @@ app.layout = html.Div([
             multi=True
         ),
     ]),
-
     html.Div([
         html.Label("Filter by Energy Used"),
         dcc.Dropdown(
@@ -79,29 +73,7 @@ app.layout = html.Div([
     dcc.Graph(id="network-graph")
 ])
 
-# Horizontal layout function (moved outside callback)
-def get_horizontal_layout(graph, levels):
-    pos = {}
-    nodes_by_column = {level: set() for level in levels}
-
-    # Regroupe les nœuds par colonne
-    for _, row in df.iterrows():
-        for i, col in enumerate(levels):
-            val = row[col]
-            if pd.notna(val):
-                nodes_by_column[col].add(val)
-
-    x_spacing = 300
-    y_spacing = 50
-
-    for i, col in enumerate(levels):
-        col_nodes = sorted(nodes_by_column[col])
-        for j, node in enumerate(col_nodes):
-            pos[node] = (i * x_spacing, -j * y_spacing)
-
-    return pos
-
-# Callback for filtering and updating graph
+# Callback
 @app.callback(
     Output("network-graph", "figure"),
     Input("pathway-filter", "value"),
@@ -110,7 +82,6 @@ def get_horizontal_layout(graph, levels):
     Input("energy-filter", "value")
 )
 def update_graph(pathways, feedstocks, processes, energies):
-    # Filter rows
     filtered = df.copy()
     if pathways:
         filtered = filtered[filtered["Fuel Pathway Code"].isin(pathways)]
@@ -130,6 +101,22 @@ def update_graph(pathways, feedstocks, processes, energies):
             if pd.notna(src) and pd.notna(tgt):
                 subG.add_edge(src, tgt)
 
+    def get_horizontal_layout(graph, levels):
+        pos = {}
+        nodes_by_column = {level: set() for level in levels}
+        for _, row in filtered.iterrows():
+            for i, col in enumerate(levels):
+                val = row[col]
+                if pd.notna(val):
+                    nodes_by_column[col].add(val)
+        x_spacing = 300
+        y_spacing = 50
+        for i, col in enumerate(levels):
+            col_nodes = sorted(nodes_by_column[col])
+            for j, node in enumerate(col_nodes):
+                pos[node] = (i * x_spacing, -j * y_spacing)
+        return pos
+
     pos = get_horizontal_layout(subG, columns)
 
     edge_x, edge_y = [], []
@@ -143,14 +130,19 @@ def update_graph(pathways, feedstocks, processes, energies):
         x=edge_x, y=edge_y,
         line=dict(width=1, color="#888"),
         hoverinfo="none",
-        mode="lines")
+        mode="lines"
+    )
 
-    node_x, node_y, labels = [], [], []
+    node_x, node_y, labels, node_colors = [], [], [], []
     for node in subG.nodes():
         x, y = pos[node]
         node_x.append(x)
         node_y.append(y)
         labels.append(node)
+        for col in columns:
+            if node in df[col].values:
+                node_colors.append(column_colors[col])
+                break
 
     node_trace = go.Scatter(
         x=node_x, y=node_y,
@@ -159,18 +151,32 @@ def update_graph(pathways, feedstocks, processes, energies):
         textposition="top center",
         hoverinfo="text",
         marker=dict(
-            showscale=False,
-            color="#1f77b4",
+            color=node_colors,
             size=20,
-            line_width=2))
+            line_width=2
+        )
+    )
 
-    fig = go.Figure(data=[edge_trace, node_trace],
+    # Legend
+    legend_items = []
+    for label, color in column_colors.items():
+        legend_items.append(go.Scatter(
+            x=[None], y=[None],
+            mode='markers',
+            marker=dict(size=10, color=color),
+            legendgroup=label,
+            showlegend=True,
+            name=label
+        ))
+
+    fig = go.Figure(data=[edge_trace, node_trace] + legend_items,
                    layout=go.Layout(
-                       showlegend=False,
+                       showlegend=True,
                        hovermode="closest",
-                       margin=dict(b=20,l=5,r=5,t=40),
+                       margin=dict(b=20, l=5, r=5, t=40),
                        xaxis=dict(showgrid=False, zeroline=False),
-                       yaxis=dict(showgrid=False, zeroline=False)))
+                       yaxis=dict(showgrid=False, zeroline=False)
+                   ))
     return fig
 
 # Run the app
