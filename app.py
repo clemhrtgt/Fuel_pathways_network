@@ -117,7 +117,29 @@ def update_graph(pathways, feedstocks, processes, energies):
             if pd.notna(src) and pd.notna(tgt):
                 subG.add_edge(src, tgt)
 
-    pos = nx.spring_layout(subG, seed=42)
+    def get_horizontal_layout(graph, levels):
+    pos = {}
+    nodes_by_column = {level: set() for level in levels}
+
+    # Regroupe les nœuds par colonne
+    for _, row in filtered.iterrows():
+        for i, col in enumerate(levels):
+            val = row[col]
+            if pd.notna(val):
+                nodes_by_column[col].add(val)
+
+    x_spacing = 300
+    y_spacing = 50
+
+    for i, col in enumerate(levels):
+        col_nodes = sorted(nodes_by_column[col])
+        for j, node in enumerate(col_nodes):
+            pos[node] = (i * x_spacing, -j * y_spacing)
+
+    return pos
+
+pos = get_horizontal_layout(subG, columns)
+
     edge_x, edge_y = [], []
     for edge in subG.edges():
         x0, y0 = pos[edge[0]]
