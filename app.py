@@ -42,6 +42,7 @@ for _, row in df.iterrows():
 
 # Dash app
 app = Dash(__name__)
+server = app.server
 app.title = "Fuel Pathway Network"
 
 # Layout
