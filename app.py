@@ -130,7 +130,7 @@ def update_graph(pathways, feedstocks, processes, energies):
         x=edge_x, y=edge_y,
         line=dict(width=1, color="#888"),
         hoverinfo="none",
-        mode="lines"
+        mode="lines",
         showlegend=False
     )
 
