@@ -8,24 +8,20 @@ df = pd.read_csv("data.csv")
 df.columns = df.columns.str.strip()
 df = df.applymap(lambda x: x.strip().replace('\n', ' ') if isinstance(x, str) else x)
 
-# Column order for the path
+# Column order for the simplified path
 columns = [
-    "Group",
     "Feedstock Sources",
-    "Process Type",
     "Energy  used  in  the process",
-    "Fuel type",
-    "Fuel Pathway Code"
+    "Process Type",
+    "Fuel type"
 ]
 
 # Color map for columns
 column_colors = {
-    "Group": "#1f77b4",
     "Feedstock Sources": "#2ca02c",
-    "Process Type": "#ff7f0e",
     "Energy  used  in  the process": "#9467bd",
-    "Fuel type": "#d62728",
-    "Fuel Pathway Code": "#7f7f7f"
+    "Process Type": "#ff7f0e",
+    "Fuel type": "#d62728"
 }
 
 # Dash app
@@ -35,37 +31,13 @@ app.title = "Fuel Pathway Network"
 
 # Layout
 app.layout = html.Div([
-    html.H2("Fuel Pathway Network Explorer"),
+    html.H2("Fuel Pathway Viewer"),
 
     html.Div([
-        html.Label("Filter by Fuel Pathway Code"),
+        html.Label("Select Fuel Pathway Code"),
         dcc.Dropdown(
             options=[{"label": code, "value": code} for code in sorted(df["Fuel Pathway Code"].unique())],
             id="pathway-filter",
-            multi=True
-        ),
-    ]),
-    html.Div([
-        html.Label("Filter by Feedstock Source"),
-        dcc.Dropdown(
-            options=[{"label": f, "value": f} for f in sorted(df["Feedstock Sources"].unique())],
-            id="feedstock-filter",
-            multi=True
-        ),
-    ]),
-    html.Div([
-        html.Label("Filter by Process Type"),
-        dcc.Dropdown(
-            options=[{"label": p, "value": p} for p in sorted(df["Process Type"].dropna().unique())],
-            id="process-filter",
-            multi=True
-        ),
-    ]),
-    html.Div([
-        html.Label("Filter by Energy Used"),
-        dcc.Dropdown(
-            options=[{"label": e, "value": e} for e in sorted(df["Energy  used  in  the process"].unique())],
-            id="energy-filter",
             multi=True
         ),
     ]),
@@ -76,21 +48,12 @@ app.layout = html.Div([
 # Callback
 @app.callback(
     Output("network-graph", "figure"),
-    Input("pathway-filter", "value"),
-    Input("feedstock-filter", "value"),
-    Input("process-filter", "value"),
-    Input("energy-filter", "value")
+    Input("pathway-filter", "value")
 )
-def update_graph(pathways, feedstocks, processes, energies):
+def update_graph(pathways):
     filtered = df.copy()
     if pathways:
         filtered = filtered[filtered["Fuel Pathway Code"].isin(pathways)]
-    if feedstocks:
-        filtered = filtered[filtered["Feedstock Sources"].isin(feedstocks)]
-    if processes:
-        filtered = filtered[filtered["Process Type"].isin(processes)]
-    if energies:
-        filtered = filtered[filtered["Energy  used  in  the process"].isin(energies)]
 
     # Create subgraph
     subG = nx.DiGraph()
@@ -171,8 +134,11 @@ def update_graph(pathways, feedstocks, processes, energies):
             name=label
         ))
 
+    title = f"Fuel Pathway(s): {', '.join(pathways)}" if pathways else "Fuel Pathway Viewer"
+
     fig = go.Figure(data=[edge_trace, node_trace] + legend_items,
                    layout=go.Layout(
+                       title=title,
                        showlegend=True,
                        hovermode="closest",
                        margin=dict(b=20, l=5, r=5, t=40),
