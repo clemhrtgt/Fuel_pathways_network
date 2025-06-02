@@ -82,25 +82,28 @@ def update_graph(pathways):
 
     pos = get_horizontal_layout(subG, columns)
 
-    
-    edge_shapes = []
+    # Edges with arrows as annotations
+    def create_arrow(x0, y0, x1, y1):
+        return dict(
+            ax=x0, ay=y0,
+            x=x1, y=y1,
+            xref="x", yref="y",
+            axref="x", ayref="y",
+            showarrow=True,
+            arrowhead=3,
+            arrowsize=1,
+            arrowwidth=1,
+            arrowcolor="#888",
+            opacity=1
+        )
+
+    annotations = []
     for edge in subG.edges():
         x0, y0 = pos[edge[0]]
         x1, y1 = pos[edge[1]]
-        edge_shapes.append(
-            dict(
-                type="line",
-                x0=x0, y0=y0, x1=x1, y1=y1,
-                line=dict(color="#888", width=1),
-                opacity=1,
-                axref='x', ayref='y',
-                xref='x', yref='y',
-                arrowhead=2,
-                arrowsize=1,
-                arrowwidth=1
-            )
-        )
+        annotations.append(create_arrow(x0, y0, x1, y1))
 
+    # Nodes
     node_x, node_y, labels, node_colors = [], [], [], []
     for node in subG.nodes():
         x, y = pos[node]
@@ -138,11 +141,9 @@ def update_graph(pathways):
             name=label
         ))
 
-    title = f"Fuel Pathway(s): {', '.join(pathways)}" if pathways else "Fuel Pathway Viewer"
-
     fig = go.Figure(data=[node_trace] + legend_items)
     fig.update_layout(
-        shapes=edge_shapes,
+        annotations=annotations,
         showlegend=True,
         hovermode="closest",
         margin=dict(b=20, l=5, r=5, t=60),
@@ -155,4 +156,5 @@ def update_graph(pathways):
 # Run the app
 if __name__ == "__main__":
     app.run_server(debug=True)
+
 
