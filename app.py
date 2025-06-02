@@ -82,20 +82,24 @@ def update_graph(pathways):
 
     pos = get_horizontal_layout(subG, columns)
 
-    edge_x, edge_y = [], []
+    
+    edge_shapes = []
     for edge in subG.edges():
         x0, y0 = pos[edge[0]]
         x1, y1 = pos[edge[1]]
-        edge_x += [x0, x1, None]
-        edge_y += [y0, y1, None]
-
-    edge_trace = go.Scatter(
-        x=edge_x, y=edge_y,
-        line=dict(width=1, color="#888"),
-        hoverinfo="none",
-        mode="lines",
-        showlegend=False
-    )
+        edge_shapes.append(
+            dict(
+                type="line",
+                x0=x0, y0=y0, x1=x1, y1=y1,
+                line=dict(color="#888", width=1),
+                opacity=1,
+                axref='x', ayref='y',
+                xref='x', yref='y',
+                arrowhead=2,
+                arrowsize=1,
+                arrowwidth=1
+            )
+        )
 
     node_x, node_y, labels, node_colors = [], [], [], []
     for node in subG.nodes():
@@ -136,15 +140,16 @@ def update_graph(pathways):
 
     title = f"Fuel Pathway(s): {', '.join(pathways)}" if pathways else "Fuel Pathway Viewer"
 
-    fig = go.Figure(data=[edge_trace, node_trace] + legend_items,
-                   layout=go.Layout(
-                       title=title,
-                       showlegend=True,
-                       hovermode="closest",
-                       margin=dict(b=20, l=5, r=5, t=40),
-                       xaxis=dict(showgrid=False, zeroline=False),
-                       yaxis=dict(showgrid=False, zeroline=False)
-                   ))
+    fig = go.Figure(data=[node_trace] + legend_items)
+    fig.update_layout(
+        shapes=edge_shapes,
+        showlegend=True,
+        hovermode="closest",
+        margin=dict(b=20, l=5, r=5, t=60),
+        xaxis=dict(showgrid=False, zeroline=False),
+        yaxis=dict(showgrid=False, zeroline=False)
+    )
+
     return fig
 
 # Run the app
