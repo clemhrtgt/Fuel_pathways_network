@@ -42,7 +42,7 @@ app.layout = html.Div([
         ),
     ]),
 
-    dcc.Graph(id="network-graph")
+    dcc.Graph(id="network-graph", style={"height":"800px"})
 ])
 
 # Callback
