@@ -93,7 +93,7 @@ def update_graph(pathways):
             arrowhead=3,
             arrowsize=1,
             arrowwidth=1,
-            arrowcolor="#888",
+            arrowcolor="black",
             opacity=1
         )
 
