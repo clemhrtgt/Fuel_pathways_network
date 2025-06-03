@@ -3,7 +3,6 @@ import networkx as nx
 import plotly.graph_objects as go
 from dash import Dash, dcc, html, Input, Output
 
-
 # Load and clean data
 df = pd.read_csv("data.csv")
 df.columns = df.columns.str.strip()
@@ -78,43 +77,40 @@ def update_graph(pathways):
             for col in columns:
                 if pd.notna(row[col]):
                     node_groups[col].add(row[col])
-    
-       
+
         x_map = {
             "Feedstock Sources": 0,
             "Energy  used  in  the process": 0,  # Même x que Feedstock
             "Process Type": 4,
             "Fuel type": 6
         }
-    
-        
+
         feedstock_nodes = sorted(node_groups["Feedstock Sources"])
         energy_nodes = sorted(node_groups["Energy  used  in  the process"])
-    
-        
+
         combined_nodes = []
         max_len = max(len(feedstock_nodes), len(energy_nodes))
         for i in range(max_len):
             if i < len(feedstock_nodes):
-                combined_nodes.append( (feedstock_nodes[i], "Feedstock Sources") )
+                combined_nodes.append((feedstock_nodes[i], "Feedstock Sources"))
             if i < len(energy_nodes):
-                combined_nodes.append( (energy_nodes[i], "Energy  used  in  the process") )
-    
+                combined_nodes.append((energy_nodes[i], "Energy  used  in  the process"))
+
         y_spacing = 80
-     
+
         for j, (node, cat) in enumerate(combined_nodes):
             x = x_map[cat] * 100
             y = -j * y_spacing
             pos[node] = (x, y)
-    
+
         for col in ["Process Type", "Fuel type"]:
             nodes = sorted(node_groups[col])
             for j, node in enumerate(nodes):
                 x = x_map[col] * 100
                 y = -j * y_spacing
                 pos[node] = (x, y)
-    
-        return pos 
+
+        return pos
 
     pos = get_custom_layout()
 
@@ -133,15 +129,11 @@ def update_graph(pathways):
         )
 
     annotations = []
-
-for start, end in subG.edges():
-    if start in pos and end in pos:
-        x0, y0 = pos[start]
-        x1, y1 = pos[end]
-
-        # Toutes les flèches partent du centre et arrivent au centre
-        annotations.append(create_arrow(x0, y0, x1, y1))
-
+    for start, end in subG.edges():
+        if start in pos and end in pos:
+            x0, y0 = pos[start]
+            x1, y1 = pos[end]
+            annotations.append(create_arrow(x0, y0, x1, y1))
 
     emoji_x = []
     emoji_y = []
@@ -167,7 +159,7 @@ for start, end in subG.edges():
         emoji_hovertext.append(node)
 
         label_x.append(x)
-        label_y.append(y + 30)  # labels below emoji nodes
+        label_y.append(y + 30)
         label_text.append(node)
 
     emoji_trace = go.Scatter(
@@ -192,7 +184,6 @@ for start, end in subG.edges():
         showlegend=False
     )
 
-    # Legend: emoji + category name only
     legend_items = []
     for col in columns:
         legend_items.append(go.Scatter(
@@ -204,7 +195,6 @@ for start, end in subG.edges():
             showlegend=True,
             name=f"{category_emojis[col]} {col}"
         ))
-
 
     fig = go.Figure(data=[emoji_trace, label_trace] + legend_items)
     fig.update_layout(
@@ -220,4 +210,5 @@ for start, end in subG.edges():
 
 if __name__ == "__main__":
     app.run_server(debug=True)
+
 
