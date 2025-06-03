@@ -183,7 +183,7 @@ def update_graph(pathways):
         hovermode="closest",
         margin=dict(b=20, l=20, r=20, t=60),
         xaxis=dict(showgrid=False, zeroline=False, visible=False),
-        yaxis
+        yaxis=dict() 
     )
 
     return fig
