@@ -16,7 +16,7 @@ columns = [
     "Fuel type"
 ]
 
-# Updated emoji map (🌿 instead of 🧺 for feedstock)
+# Emoji map
 category_emojis = {
     "Feedstock Sources": "🌿",
     "Energy  used  in  the process": "⚡",
@@ -78,6 +78,7 @@ def update_graph(pathways):
                 if pd.notna(row[col]):
                     node_groups[col].add(row[col])
 
+        # Spread nodes horizontally
         x_map = {
             "Feedstock Sources": 0,
             "Energy  used  in  the process": 2,
@@ -116,7 +117,7 @@ def update_graph(pathways):
         x1, y1 = pos[edge[1]]
         annotations.append(create_arrow(x0, y0, x1, y1))
 
-    # Prepare nodes with emoji + labels above
+    # Emoji nodes
     emoji_trace = go.Scatter(
         x=[],
         y=[],
@@ -128,7 +129,60 @@ def update_graph(pathways):
         showlegend=False
     )
 
+    # Text labels above emojis
     label_trace = go.Scatter(
         x=[],
         y=[],
         mode="text",
+        text=[],
+        textfont=dict(size=12),
+        textposition="top center",
+        hoverinfo="skip",
+        showlegend=False
+    )
+
+    for node in subG.nodes():
+        x, y = pos[node]
+
+        emoji = "❓"
+        for col in columns:
+            if node in df[col].values:
+                emoji = category_emojis[col]
+                break
+
+        emoji_trace.x.append(x)
+        emoji_trace.y.append(y)
+        emoji_trace.text.append(emoji)
+        emoji_trace.hovertext.append(node)
+
+        label_trace.x.append(x)
+        label_trace.y.append(y - 30)  # label above emoji
+        label_trace.text.append(node)
+
+    # Legend: emoji + category name only
+    legend_items = []
+    for col in columns:
+        legend_items.append(go.Scatter(
+            x=[None],
+            y=[None],
+            mode='text',
+            text=[f"{category_emojis[col]} {col}"],
+            textfont=dict(size=16),
+            showlegend=True,
+            name=f"{category_emojis[col]} {col}"
+        ))
+
+    fig = go.Figure(data=[emoji_trace, label_trace] + legend_items)
+    fig.update_layout(
+        annotations=annotations,
+        showlegend=True,
+        hovermode="closest",
+        margin=dict(b=20, l=20, r=20, t=60),
+        xaxis=dict(showgrid=False, zeroline=False, visible=False),
+        yaxis=dict(showgrid=False, zeroline=False, visible=False)
+    )
+
+    return fig
+
+if __name__ == "__main__":
+    app.run_server(debug=True)
