@@ -134,46 +134,15 @@ def update_graph(pathways):
 
     annotations = []
 
-    # Custom arrows for Feedstock Sources and Energy to Process at ~45 degrees
-    for edge in subG.edges():
-        start, end = edge
+for start, end in subG.edges():
+    if start in pos and end in pos:
         x0, y0 = pos[start]
         x1, y1 = pos[end]
 
-        # If edge is Feedstock Sources -> Process or Energy -> Process
-        if end in subG.nodes and start in subG.nodes:
-            # Determine category of start and end nodes
-            start_cat = next((col for col in columns if start in df[col].values), None)
-            end_cat = next((col for col in columns if end in df[col].values), None)
+        # Toutes les flèches partent du centre et arrivent au centre
+        annotations.append(create_arrow(x0, y0, x1, y1))
 
-            if end_cat == "Process Type" and (start_cat == "Feedstock Sources" or start_cat == "Energy  used  in  the process"):
-                # Adjust arrows so they come in from top-left or top-right at 45°
-                # Calculate midpoint x (a bit left/right from the process node)
-                mid_x = (x0 + x1) / 2
-                mid_y = (y0 + y1) / 2
 
-                # Shift x0,y0 and x1,y1 to create two distinct arrows (no overlap)
-                if start_cat == "Feedstock Sources":
-                    # Arrow coming in from bottom-left side of process node
-                    # Start arrow slightly above original start
-                    adjusted_x0 = x0
-                    adjusted_y0 = y0 + 10
-                    adjusted_x1 = x1 - 15
-                    adjusted_y1 = y1 + 15
-                else:  # Energy
-                    # Arrow coming in from bottom-right side of process node
-                    adjusted_x0 = x0
-                    adjusted_y0 = y0 + 10
-                    adjusted_x1 = x1 + 15
-                    adjusted_y1 = y1 + 15
-
-                annotations.append(create_arrow(adjusted_x0, adjusted_y0, adjusted_x1, adjusted_y1))
-            else:
-                # Normal arrow for other edges
-                annotations.append(create_arrow(x0, y0, x1, y1))
-
-    # === FIXED PART ===
-    # Create lists to store emoji and label data (instead of appending to tuples)
     emoji_x = []
     emoji_y = []
     emoji_text = []
