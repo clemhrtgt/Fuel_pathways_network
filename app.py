@@ -16,15 +16,9 @@ columns = [
     "Fuel type"
 ]
 
-column_colors = {
-    "Feedstock Sources": "#2ca02c",
-    "Energy  used  in  the process": "#9467bd",
-    "Process Type": "#ff7f0e",
-    "Fuel type": "#d62728"
-}
-
+# Updated emoji map (🌿 instead of 🧺 for feedstock)
 category_emojis = {
-    "Feedstock Sources": "🧺",
+    "Feedstock Sources": "🌿",
     "Energy  used  in  the process": "⚡",
     "Process Type": "⚙️",
     "Fuel type": "⛽"
@@ -54,7 +48,6 @@ app.layout = html.Div([
     dcc.Graph(id="network-graph", style={"height": "800px"})
 ])
 
-# Callback
 @app.callback(
     Output("network-graph", "figure"),
     Input("pathway-filter", "value")
@@ -85,19 +78,18 @@ def update_graph(pathways):
                 if pd.notna(row[col]):
                     node_groups[col].add(row[col])
 
-        spacing = 300
-        y_spacing = 60
         x_map = {
             "Feedstock Sources": 0,
-            "Energy  used  in  the process": 1,
-            "Process Type": 2,
-            "Fuel type": 3
+            "Energy  used  in  the process": 2,
+            "Process Type": 4,
+            "Fuel type": 6
         }
 
+        y_spacing = 80
         for col in columns:
             nodes = sorted(node_groups[col])
             for j, node in enumerate(nodes):
-                x = x_map[col] * spacing
+                x = x_map[col] * 100
                 y = -j * y_spacing
                 pos[node] = (x, y)
         return pos
@@ -124,58 +116,19 @@ def update_graph(pathways):
         x1, y1 = pos[edge[1]]
         annotations.append(create_arrow(x0, y0, x1, y1))
 
-    # Node emojis
-    node_x, node_y, node_text, hover_texts = [], [], [], []
-    for node in subG.nodes():
-        x, y = pos[node]
-        node_x.append(x)
-        node_y.append(y)
-        hover_texts.append(node)
-
-        emoji = "❓"
-        for col in columns:
-            if node in df[col].values:
-                emoji = category_emojis[col]
-                break
-        node_text.append(emoji)
-
-    node_trace = go.Scatter(
-        x=node_x, y=node_y,
+    # Prepare nodes with emoji + labels above
+    emoji_trace = go.Scatter(
+        x=[],
+        y=[],
         mode="text",
-        text=node_text,
-        textposition="middle center",
-        hovertext=hover_texts,
+        text=[],
+        textfont=dict(size=32),
         hoverinfo="text",
-        textfont=dict(size=32),  # BIG emojis
+        hovertext=[],
         showlegend=False
     )
 
-    # Emoji-only legend
-    legend_items = []
-    for col in columns:
-        legend_items.append(go.Scatter(
-            x=[None], y=[None],
-            mode='text',
-            text=[f"{category_emojis[col]} {col}"],
-            textfont=dict(size=16),
-            showlegend=True,
-            name=f"{category_emojis[col]} {col}"
-        ))
-
-    fig = go.Figure(data=[node_trace] + legend_items)
-    fig.update_layout(
-        annotations=annotations,
-        showlegend=True,
-        hovermode="closest",
-        margin=dict(b=20, l=20, r=20, t=60),
-        xaxis=dict(showgrid=False, zeroline=False, visible=False),
-        yaxis=dict(showgrid=False, zeroline=False, visible=False)
-    )
-
-    return fig
-
-# Run the app
-if __name__ == "__main__":
-    app.run_server(debug=True)
-
-
+    label_trace = go.Scatter(
+        x=[],
+        y=[],
+        mode="text",
