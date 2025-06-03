@@ -45,7 +45,7 @@ app.layout = html.Div([
         ),
     ]),
 
-    dcc.Graph(id="network-graph", style={"height": "800px"})
+    dcc.Graph(id="network-graph", style={"height": "1000px", "width": "100%"})
 ])
 
 @app.callback(
@@ -178,7 +178,7 @@ def update_graph(pathways):
         y=label_y,
         mode="text",
         text=label_text,
-        textfont=dict(size=12),
+        textfont=dict(size=18),
         textposition="top center",
         hoverinfo="skip",
         showlegend=False
