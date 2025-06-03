@@ -117,29 +117,16 @@ def update_graph(pathways):
         x1, y1 = pos[edge[1]]
         annotations.append(create_arrow(x0, y0, x1, y1))
 
-    # Emoji nodes
-    emoji_trace = go.Scatter(
-        x=[],
-        y=[],
-        mode="text",
-        text=[],
-        textfont=dict(size=32),
-        hoverinfo="text",
-        hovertext=[],
-        showlegend=False
-    )
+    # Prepare lists to hold emoji node data
+    emoji_x = []
+    emoji_y = []
+    emoji_text = []
+    emoji_hovertext = []
 
-    # Text labels above emojis
-    label_trace = go.Scatter(
-        x=[],
-        y=[],
-        mode="text",
-        text=[],
-        textfont=dict(size=12),
-        textposition="top center",
-        hoverinfo="skip",
-        showlegend=False
-    )
+    # Prepare lists to hold label text data
+    label_x = []
+    label_y = []
+    label_text = []
 
     for node in subG.nodes():
         x, y = pos[node]
@@ -150,14 +137,37 @@ def update_graph(pathways):
                 emoji = category_emojis[col]
                 break
 
-        emoji_trace.x.append(x)
-        emoji_trace.y.append(y)
-        emoji_trace.text.append(emoji)
-        emoji_trace.hovertext.append(node)
+        emoji_x.append(x)
+        emoji_y.append(y)
+        emoji_text.append(emoji)
+        emoji_hovertext.append(node)
 
-        label_trace.x.append(x)
-        label_trace.y.append(y - 30)  # label above emoji
-        label_trace.text.append(node)
+        label_x.append(x)
+        label_y.append(y - 30)  # label above emoji
+        label_text.append(node)
+
+    # Create Scatter traces from the prepared lists
+    emoji_trace = go.Scatter(
+        x=emoji_x,
+        y=emoji_y,
+        mode="text",
+        text=emoji_text,
+        textfont=dict(size=32),
+        hoverinfo="text",
+        hovertext=emoji_hovertext,
+        showlegend=False
+    )
+
+    label_trace = go.Scatter(
+        x=label_x,
+        y=label_y,
+        mode="text",
+        text=label_text,
+        textfont=dict(size=12),
+        textposition="top center",
+        hoverinfo="skip",
+        showlegend=False
+    )
 
     # Legend: emoji + category name only
     legend_items = []
@@ -186,3 +196,4 @@ def update_graph(pathways):
 
 if __name__ == "__main__":
     app.run_server(debug=True)
+
