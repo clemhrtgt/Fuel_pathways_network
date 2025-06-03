@@ -1,11 +1,9 @@
-import dash
-from dash import dcc, html, Input, Output
-import pandas as pd
-import networkx as nx
-import plotly.graph_objects as go
+# Load and clean data
+df = pd.read_csv("data.csv")
+df.columns = df.columns.str.strip()
+df = df.apply(lambda col: col.str.strip().str.replace('\n', ' ') if col.dtype == "object" else col)
 
-df = pd.read_csv("fuel_pathways.csv")
-
+# Column order
 columns = [
     "Feedstock Sources",
     "Energy  used  in  the process",
@@ -13,23 +11,36 @@ columns = [
     "Fuel type"
 ]
 
+# Emoji map
 category_emojis = {
-    "Feedstock Sources": "🌱",
+    "Feedstock Sources": "🌿",
     "Energy  used  in  the process": "⚡",
-    "Process Type": "🏭",
+    "Process Type": "⚙️",
     "Fuel type": "⛽"
 }
 
-app = dash.Dash(__name__)
+# Dash app
+app = Dash(__name__)
+server = app.server
+app.title = "Fuel Pathway Network"
 
+# Layout
 app.layout = html.Div([
-    dcc.Dropdown(
-        id="pathway-filter",
-        options=[{"label": code, "value": code} for code in df["Fuel Pathway Code"].unique()],
-        multi=True,
-        placeholder="Select Fuel Pathway Code(s)..."
-    ),
-    dcc.Graph(id="network-graph")
+    html.H2("Fuel Pathway Viewer"),
+
+    html.Div([
+        html.Label("Select Fuel Pathway Code"),
+        dcc.Dropdown(
+            options=[
+                {"label": f'{int(row["Order"])}: {row["Fuel Pathway Code"]}', "value": row["Fuel Pathway Code"]}
+                for _, row in df[["Order", "Fuel Pathway Code"]].drop_duplicates().sort_values("Order").iterrows()
+            ],
+            id="pathway-filter",
+            multi=True
+        ),
+    ]),
+
+    dcc.Graph(id="network-graph", style={"height": "800px"})
 ])
 
 @app.callback(
@@ -48,11 +59,11 @@ def update_graph(pathways):
         pt = row["Process Type"]
         ft = row["Fuel type"]
         if pd.notna(fs) and pd.notna(pt):
-            subG.add_edge(fs, pt, type="feedstock")
+            subG.add_edge(fs, pt)
         if pd.notna(en) and pd.notna(pt):
-            subG.add_edge(en, pt, type="energy")
+            subG.add_edge(en, pt)
         if pd.notna(pt) and pd.notna(ft):
-            subG.add_edge(pt, ft, type="process_to_fuel")
+            subG.add_edge(pt, ft)
 
     def get_custom_layout():
         pos = {}
@@ -62,6 +73,7 @@ def update_graph(pathways):
                 if pd.notna(row[col]):
                     node_groups[col].add(row[col])
 
+        # Spread nodes horizontally
         x_map = {
             "Feedstock Sources": 0,
             "Energy  used  in  the process": 2,
@@ -80,31 +92,10 @@ def update_graph(pathways):
 
     pos = get_custom_layout()
 
-    offset = 15  # offset to separate feedstock and energy arrows
-
-    annotations = []
-    for u, v, data in subG.edges(data=True):
-        x0, y0 = pos[u]
-        x1, y1 = pos[v]
-
-        if data.get("type") == "feedstock":
-            # Shift feedstock arrow slightly up to avoid overlap
-            x0_adj = x0
-            y0_adj = y0 + offset
-            x1_adj = x1 - offset
-            y1_adj = y1 + offset
-        elif data.get("type") == "energy":
-            # Shift energy arrow slightly down to avoid overlap
-            x0_adj = x0
-            y0_adj = y0 - offset
-            x1_adj = x1 - offset
-            y1_adj = y1 - offset
-        else:
-            x0_adj, y0_adj, x1_adj, y1_adj = x0, y0, x1, y1
-
-        annotations.append(dict(
-            ax=x0_adj, ay=y0_adj,
-            x=x1_adj, y=y1_adj,
+    def create_arrow(x0, y0, x1, y1):
+        return dict(
+            ax=x0, ay=y0,
+            x=x1, y=y1,
             xref="x", yref="y",
             axref="x", ayref="y",
             showarrow=True,
@@ -113,17 +104,73 @@ def update_graph(pathways):
             arrowwidth=1.5,
             arrowcolor="black",
             opacity=1
-        ))
+        )
 
-    emoji_x = []
-    emoji_y = []
-    emoji_text = []
-    emoji_hovertext = []
+    annotations = []
 
-    label_x = []
-    label_y = []
-    label_text = []
+    # Custom arrows for Feedstock Sources and Energy to Process at ~45 degrees
+    for edge in subG.edges():
+        start, end = edge
+        x0, y0 = pos[start]
+        x1, y1 = pos[end]
 
+        # If edge is Feedstock Sources -> Process or Energy -> Process
+        if end in subG.nodes and start in subG.nodes:
+            # Determine category of start and end nodes
+            start_cat = next((col for col in columns if start in df[col].values), None)
+            end_cat = next((col for col in columns if end in df[col].values), None)
+
+            if end_cat == "Process Type" and (start_cat == "Feedstock Sources" or start_cat == "Energy  used  in  the process"):
+                # Adjust arrows so they come in from top-left or top-right at 45°
+                # Calculate midpoint x (a bit left/right from the process node)
+                mid_x = (x0 + x1) / 2
+                mid_y = (y0 + y1) / 2
+
+                # Shift x0,y0 and x1,y1 to create two distinct arrows (no overlap)
+                if start_cat == "Feedstock Sources":
+                    # Arrow coming in from bottom-left side of process node
+                    # Start arrow slightly above original start
+                    adjusted_x0 = x0
+                    adjusted_y0 = y0 + 10
+                    adjusted_x1 = x1 - 15
+                    adjusted_y1 = y1 + 15
+                else:  # Energy
+                    # Arrow coming in from bottom-right side of process node
+                    adjusted_x0 = x0
+                    adjusted_y0 = y0 + 10
+                    adjusted_x1 = x1 + 15
+                    adjusted_y1 = y1 + 15
+
+                annotations.append(create_arrow(adjusted_x0, adjusted_y0, adjusted_x1, adjusted_y1))
+            else:
+                # Normal arrow for other edges
+                annotations.append(create_arrow(x0, y0, x1, y1))
+
+    # Emoji nodes
+    emoji_trace = go.Scatter(
+        x=[],
+        y=[],
+        mode="text",
+        text=[],
+        textfont=dict(size=32),
+        hoverinfo="text",
+        hovertext=[],
+        showlegend=False
+    )
+
+    # Text labels just under the emoji nodes (changed from above)
+    label_trace = go.Scatter(
+        x=[],
+        y=[],
+        mode="text",
+        text=[],
+        textfont=dict(size=12),
+        textposition="top center",
+        hoverinfo="skip",
+        showlegend=False
+    )
+
+    # Fix for the error: pos[node] returns tuple, so append must be called on lists not tuples
     for node in subG.nodes():
         x, y = pos[node]
 
@@ -133,37 +180,16 @@ def update_graph(pathways):
                 emoji = category_emojis[col]
                 break
 
-        emoji_x.append(x)
-        emoji_y.append(y)
-        emoji_text.append(emoji)
-        emoji_hovertext.append(node)
+        emoji_trace.x.append(x)
+        emoji_trace.y.append(y)
+        emoji_trace.text.append(emoji)
+        emoji_trace.hovertext.append(node)
 
-        label_x.append(x)
-        label_y.append(y - 20)  # Label just below the node (closer than before)
-        label_text.append(node)
+        label_trace.x.append(x)
+        label_trace.y.append(y + 30)  # changed to below node (increased y for below)
+        label_trace.text.append(node)
 
-    emoji_trace = go.Scatter(
-        x=emoji_x,
-        y=emoji_y,
-        mode="text",
-        text=emoji_text,
-        textfont=dict(size=32),
-        hoverinfo="text",
-        hovertext=emoji_hovertext,
-        showlegend=False
-    )
-
-    label_trace = go.Scatter(
-        x=label_x,
-        y=label_y,
-        mode="text",
-        text=label_text,
-        textfont=dict(size=12),
-        textposition="top center",
-        hoverinfo="skip",
-        showlegend=False
-    )
-
+    # Legend: emoji + category name only
     legend_items = []
     for col in columns:
         legend_items.append(go.Scatter(
@@ -183,11 +209,11 @@ def update_graph(pathways):
         hovermode="closest",
         margin=dict(b=20, l=20, r=20, t=60),
         xaxis=dict(showgrid=False, zeroline=False, visible=False),
-        yaxis=dict() 
+        yaxis=dict(showgrid=False, zeroline=False, visible=False)
     )
 
     return fig
 
 if __name__ == "__main__":
-    app.run_server(debug=True) 
+    app.run_server(debug=True)
     
