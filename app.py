@@ -1,14 +1,11 @@
+import dash
+from dash import dcc, html, Input, Output
 import pandas as pd
 import networkx as nx
 import plotly.graph_objects as go
-from dash import Dash, dcc, html, Input, Output
 
-# Load and clean data
-df = pd.read_csv("data.csv")
-df.columns = df.columns.str.strip()
-df = df.applymap(lambda x: x.strip().replace('\n', ' ') if isinstance(x, str) else x)
+df = pd.read_csv("fuel_pathways.csv")
 
-# Column order
 columns = [
     "Feedstock Sources",
     "Energy  used  in  the process",
@@ -16,36 +13,23 @@ columns = [
     "Fuel type"
 ]
 
-# Emoji map
 category_emojis = {
-    "Feedstock Sources": "🌿",
+    "Feedstock Sources": "🌱",
     "Energy  used  in  the process": "⚡",
-    "Process Type": "⚙️",
+    "Process Type": "🏭",
     "Fuel type": "⛽"
 }
 
-# Dash app
-app = Dash(__name__)
-server = app.server
-app.title = "Fuel Pathway Network"
+app = dash.Dash(__name__)
 
-# Layout
 app.layout = html.Div([
-    html.H2("Fuel Pathway Viewer"),
-
-    html.Div([
-        html.Label("Select Fuel Pathway Code"),
-        dcc.Dropdown(
-            options=[
-                {"label": f'{int(row["Order"])}: {row["Fuel Pathway Code"]}', "value": row["Fuel Pathway Code"]}
-                for _, row in df[["Order", "Fuel Pathway Code"]].drop_duplicates().sort_values("Order").iterrows()
-            ],
-            id="pathway-filter",
-            multi=True
-        ),
-    ]),
-
-    dcc.Graph(id="network-graph", style={"height": "800px"})
+    dcc.Dropdown(
+        id="pathway-filter",
+        options=[{"label": code, "value": code} for code in df["Fuel Pathway Code"].unique()],
+        multi=True,
+        placeholder="Select Fuel Pathway Code(s)..."
+    ),
+    dcc.Graph(id="network-graph")
 ])
 
 @app.callback(
@@ -64,11 +48,11 @@ def update_graph(pathways):
         pt = row["Process Type"]
         ft = row["Fuel type"]
         if pd.notna(fs) and pd.notna(pt):
-            subG.add_edge(fs, pt)
+            subG.add_edge(fs, pt, type="feedstock")
         if pd.notna(en) and pd.notna(pt):
-            subG.add_edge(en, pt)
+            subG.add_edge(en, pt, type="energy")
         if pd.notna(pt) and pd.notna(ft):
-            subG.add_edge(pt, ft)
+            subG.add_edge(pt, ft, type="process_to_fuel")
 
     def get_custom_layout():
         pos = {}
@@ -78,7 +62,6 @@ def update_graph(pathways):
                 if pd.notna(row[col]):
                     node_groups[col].add(row[col])
 
-        # Spread nodes horizontally
         x_map = {
             "Feedstock Sources": 0,
             "Energy  used  in  the process": 2,
@@ -97,10 +80,31 @@ def update_graph(pathways):
 
     pos = get_custom_layout()
 
-    def create_arrow(x0, y0, x1, y1):
-        return dict(
-            ax=x0, ay=y0,
-            x=x1, y=y1,
+    offset = 15  # offset to separate feedstock and energy arrows
+
+    annotations = []
+    for u, v, data in subG.edges(data=True):
+        x0, y0 = pos[u]
+        x1, y1 = pos[v]
+
+        if data.get("type") == "feedstock":
+            # Shift feedstock arrow slightly up to avoid overlap
+            x0_adj = x0
+            y0_adj = y0 + offset
+            x1_adj = x1 - offset
+            y1_adj = y1 + offset
+        elif data.get("type") == "energy":
+            # Shift energy arrow slightly down to avoid overlap
+            x0_adj = x0
+            y0_adj = y0 - offset
+            x1_adj = x1 - offset
+            y1_adj = y1 - offset
+        else:
+            x0_adj, y0_adj, x1_adj, y1_adj = x0, y0, x1, y1
+
+        annotations.append(dict(
+            ax=x0_adj, ay=y0_adj,
+            x=x1_adj, y=y1_adj,
             xref="x", yref="y",
             axref="x", ayref="y",
             showarrow=True,
@@ -109,21 +113,13 @@ def update_graph(pathways):
             arrowwidth=1.5,
             arrowcolor="black",
             opacity=1
-        )
+        ))
 
-    annotations = []
-    for edge in subG.edges():
-        x0, y0 = pos[edge[0]]
-        x1, y1 = pos[edge[1]]
-        annotations.append(create_arrow(x0, y0, x1, y1))
-
-    # Prepare lists to hold emoji node data
     emoji_x = []
     emoji_y = []
     emoji_text = []
     emoji_hovertext = []
 
-    # Prepare lists to hold label text data
     label_x = []
     label_y = []
     label_text = []
@@ -143,10 +139,9 @@ def update_graph(pathways):
         emoji_hovertext.append(node)
 
         label_x.append(x)
-        label_y.append(y - 30)  # label above emoji
+        label_y.append(y - 20)  # Label just below the node (closer than before)
         label_text.append(node)
 
-    # Create Scatter traces from the prepared lists
     emoji_trace = go.Scatter(
         x=emoji_x,
         y=emoji_y,
@@ -169,7 +164,6 @@ def update_graph(pathways):
         showlegend=False
     )
 
-    # Legend: emoji + category name only
     legend_items = []
     for col in columns:
         legend_items.append(go.Scatter(
@@ -189,11 +183,5 @@ def update_graph(pathways):
         hovermode="closest",
         margin=dict(b=20, l=20, r=20, t=60),
         xaxis=dict(showgrid=False, zeroline=False, visible=False),
-        yaxis=dict(showgrid=False, zeroline=False, visible=False)
-    )
-
-    return fig
-
-if __name__ == "__main__":
-    app.run_server(debug=True)
+        yaxis
 
