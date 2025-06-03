@@ -8,7 +8,7 @@ df = pd.read_csv("data.csv")
 df.columns = df.columns.str.strip()
 df = df.applymap(lambda x: x.strip().replace('\n', ' ') if isinstance(x, str) else x)
 
-# Column order and color mapping
+# Column order
 columns = [
     "Feedstock Sources",
     "Energy  used  in  the process",
@@ -30,7 +30,7 @@ category_emojis = {
     "Fuel type": "⛽"
 }
 
-# Dash app setup
+# Dash app
 app = Dash(__name__)
 server = app.server
 app.title = "Fuel Pathway Network"
@@ -64,7 +64,6 @@ def update_graph(pathways):
     if pathways:
         filtered = filtered[filtered["Fuel Pathway Code"].isin(pathways)]
 
-    # Create graph with adjusted structure
     subG = nx.DiGraph()
     for _, row in filtered.iterrows():
         fs = row["Feedstock Sources"]
@@ -78,36 +77,33 @@ def update_graph(pathways):
         if pd.notna(pt) and pd.notna(ft):
             subG.add_edge(pt, ft)
 
-    # Node positioning
-    def get_horizontal_layout(graph):
+    def get_custom_layout():
         pos = {}
-        nodes_by_column = {col: set() for col in columns}
+        node_groups = {col: set() for col in columns}
         for _, row in filtered.iterrows():
             for col in columns:
-                val = row[col]
-                if pd.notna(val):
-                    nodes_by_column[col].add(val)
+                if pd.notna(row[col]):
+                    node_groups[col].add(row[col])
 
+        spacing = 300
+        y_spacing = 60
         x_map = {
             "Feedstock Sources": 0,
-            "Energy  used  in  the process": 0,
-            "Process Type": 1,
-            "Fuel type": 2
+            "Energy  used  in  the process": 1,
+            "Process Type": 2,
+            "Fuel type": 3
         }
 
-        x_spacing = 300
-        y_spacing = 50
         for col in columns:
-            col_nodes = sorted(nodes_by_column[col])
-            for j, node in enumerate(col_nodes):
-                x = x_map[col] * x_spacing
+            nodes = sorted(node_groups[col])
+            for j, node in enumerate(nodes):
+                x = x_map[col] * spacing
                 y = -j * y_spacing
                 pos[node] = (x, y)
         return pos
 
-    pos = get_horizontal_layout(subG)
+    pos = get_custom_layout()
 
-    # Arrows
     def create_arrow(x0, y0, x1, y1):
         return dict(
             ax=x0, ay=y0,
@@ -116,8 +112,8 @@ def update_graph(pathways):
             axref="x", ayref="y",
             showarrow=True,
             arrowhead=3,
-            arrowsize=1,
-            arrowwidth=1,
+            arrowsize=1.2,
+            arrowwidth=1.5,
             arrowcolor="black",
             opacity=1
         )
@@ -128,39 +124,41 @@ def update_graph(pathways):
         x1, y1 = pos[edge[1]]
         annotations.append(create_arrow(x0, y0, x1, y1))
 
-    # Node symbols (emoji labels)
-    node_x, node_y, emoji_labels, hover_labels = [], [], [], []
+    # Node emojis
+    node_x, node_y, node_text, hover_texts = [], [], [], []
     for node in subG.nodes():
         x, y = pos[node]
         node_x.append(x)
         node_y.append(y)
-        hover_labels.append(node)
+        hover_texts.append(node)
 
         emoji = "❓"
         for col in columns:
             if node in df[col].values:
                 emoji = category_emojis[col]
                 break
-        emoji_labels.append(f"{emoji} {node}")
+        node_text.append(emoji)
 
     node_trace = go.Scatter(
         x=node_x, y=node_y,
         mode="text",
-        text=emoji_labels,
+        text=node_text,
         textposition="middle center",
-        hovertext=hover_labels,
+        hovertext=hover_texts,
         hoverinfo="text",
-        textfont=dict(size=16),
+        textfont=dict(size=32),  # BIG emojis
         showlegend=False
     )
 
-    # Legend items
+    # Emoji-only legend
     legend_items = []
-    for col, color in column_colors.items():
+    for col in columns:
         legend_items.append(go.Scatter(
             x=[None], y=[None],
-            mode='markers+text',
-            marker=dict(size=10, color=color),
+            mode='text',
+            text=[f"{category_emojis[col]} {col}"],
+            textfont=dict(size=16),
+            showlegend=True,
             name=f"{category_emojis[col]} {col}"
         ))
 
@@ -170,8 +168,8 @@ def update_graph(pathways):
         showlegend=True,
         hovermode="closest",
         margin=dict(b=20, l=20, r=20, t=60),
-        xaxis=dict(showgrid=False, zeroline=False),
-        yaxis=dict(showgrid=False, zeroline=False)
+        xaxis=dict(showgrid=False, zeroline=False, visible=False),
+        yaxis=dict(showgrid=False, zeroline=False, visible=False)
     )
 
     return fig
