@@ -184,4 +184,10 @@ def update_graph(pathways):
         margin=dict(b=20, l=20, r=20, t=60),
         xaxis=dict(showgrid=False, zeroline=False, visible=False),
         yaxis
+    )
 
+    return fig
+
+if __name__ == "__main__":
+    app.run_server(debug=True) 
+    
