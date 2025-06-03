@@ -1,303 +1,303 @@
-﻿Group,Feedstock Sources,Process Type,Fuel type,Energy  used  in  the process,Fuel Pathway Code
-Hydrogen,H2: Industrial by-product hydrogen,"",Hydrogen,Grid mix electricity,LH2_ _ibp_gm _Liquefied
-Electricity,Fossil/Renewable,'-,Electricity,Grid mix electricity,Electricity_gm
-DME,"Biogenic Mixed 1st, 2nd and 3rd Gen. feedstock","Anaerobic digestion and methane separation and DME Synthesis with Point Source Carbon Capture (PSCC) and
-long-term storage",Dimethyl Ether (DME),Grid mix electricity,DME_b_AD_DMES_CCS_g m
-DME,"Biogenic Mixed 1st, 2nd and 3rd Gen. feedstock","Anaerobic digestion and methane separation and DME
-Synthesis",Dimethyl Ether (DME),Grid mix electricity,DME_b_AD_DMES_gm
-Diesel,"Biogenic Mixed 1st, 2nd and 3rd Gen. feedstock","Anaerobic digestion and methane separation and Fischer-Tropsch Synthesis with Point Source Carbon
-Capture (PSCC) and long-term storage",Renewable Diesel (Bio FT-Diesel),Grid mix electricity,"FT-
-Diesel_b_AD_FT_CCS_gm"
-Diesel,"Biogenic Mixed 1st, 2nd and 3rd Gen. feedstock","Anaerobic digestion and methane separation and Fischer-Tropsch
-Synthesis",Renewable Diesel (Bio FT-Diesel),Grid mix electricity,FT-Diesel_b_AD_FT_gm
-CNG,"Biogenic Mixed 1st, 2nd and 3rd Gen. feedstock","Bio-derived LNG via Anaerobic Digestion and separation and
-compression",Compressed Natural Gas (Methane),Grid mix electricity,CNG_b_AD_gm
-LNG,"Biogenic Mixed 1st, 2nd and 3rd Gen. feedstock","Bio-derived LNG via Anaerobic Digestion, separation and liquefaction",Liquefied Natural     Gas (Methane),Grid mix electricity,LNG_b_AD_gm
-LNG,"Biogenic Mixed 1st, 2nd and 3rd Gen. feedstock","Bio-derived LNG via Anaerobic Digestion, separation with Point Source Carbon Capture (PSCC) and long-term storage
-and liquefaction",Liquefied Natural     Gas (Methane),Grid mix electricity,LNG_b_AD_CCS_gm
-CNG,"Biogenic Mixed 1st, 2nd and 3rd Gen. feedstock","Bio-derived LNG via Anaerobic Digestion, separation with Point Source Carbon Capture (PSCC) and
-long-term storage and compression",Compressed Natural Gas (Methane),Grid mix electricity,CNG_b_AD_CCS_gm
-Diesel/Gas oil (ULSFO),Biogenic mixed biomass,CoProcessing (CP) in refinery,"Bio co- processed marine fuel (ISO 8217
+﻿Order,Fuel Pathway Code,Group,Feedstock Sources,Process Type,Fuel type,Energy  used  in  the process
+64,"FT-
+Diesel_b_G_FT_1stgen_gm_",Diesel,Biogenic 1st Gen. feedstock,Gasification and Fischer-Tropsch Synthesis,Renewable Diesel (Bio FT-Diesel),Grid mix electricity
+76,HVO_b_HD_1stgen_gm_,Diesel,Biogenic 1st Gen. feedstock,Hydrogenation,Renewable Diesel (HVO),Grid mix electricity
+61,FAME_b_TRE_1stgen_gm_,Diesel,Biogenic 1st Gen. feedstock,Transesterification,Diesel (FAME),Grid mix electricity
+79,DME_b_G_DMES_1stgen_g m_,DME,Biogenic 1st Gen. feedstock,Gasification and DME Synthesis,Dimethyl Ether (DME),Grid mix electricity
+101,EtOH_b_FR_1stgen_gm_,Ethanol,Biogenic 1st Gen. feedstock,Fermentation,Ethanol,Grid mix electricity
+58,SVO_b_EP _1stgen_gm,"Vegetable oil-based
+fuel",Biogenic 1st Gen. feedstock,Extraction and purification,Straight Vegetable Oil,Grid mix electricity
+90,MeOH_b_G_MS_gm,Methanol,Biogenic 2nd and 3rd Gen. feedstock,"Gasification of Biomass and
+Methanol Synthesis",Methanol,Grid mix electricity
+119,NH3_b_G_2ndgen_gm_,Ammonia,Biogenic 2nd Gen. feedstock,Gasification,Ammonia,Grid mix electricity
+77,HVO_b_HD_2ndgen_gm_,Diesel,Biogenic 2nd Gen. feedstock,Hydrogenation,Renewable Diesel (HVO),Grid mix electricity
+85,HTL_b_HTL_2ndgen_gm_,Diesel,Biogenic 2nd Gen. feedstock,Hydrothermal liquefaction and upgrading,Hydrothermal Liquefaction (HTL) Oil,Grid mix electricity
+84,UPO_b_UPO_2ndgen_gm_,Diesel,Biogenic 2nd Gen. feedstock,"Pyrolysis, Fast Pyrolysis and/or Catalytic Fast
+Pyrolysis and upgrading",Upgraded Pyrolysis Oil,Grid mix electricity
+62,FAME_b_TRE_2ndgen_gm_,Diesel,Biogenic 2nd Gen. feedstock,Transesterification,Diesel (FAME),Grid mix electricity
+80,"DME-b-G-
+DMES_2ndgen_gm_",DME,Biogenic 2nd Gen. feedstock,Gasification and DME Synthesis,Dimethyl Ether (DME),Grid mix electricity
+102,EtOH_b_FR_2ndgen_gm_,Ethanol,Biogenic 2nd Gen. feedstock,Pretreatment/hydroly sis step and Fermentation,Ethanol,Grid mix electricity
+109,H2_b_G_SS_CCS_2ndgen_ gm_,Hydrogen,Biogenic 2nd Gen. feedstock,Gasification of biomass and Syngas separation with Point Source Carbon Capture (PSCC) and long-term storage,Hydrogen,Grid mix electricity
+59,UOF_b_EP _2ndgen_gm,Vegetable oil-based fuel,Biogenic 2nd Gen. feedstock,Extraction and purification,Used oils and fats,Grid mix electricity
+78,HVO_b_HD_3rdgen_gm_,Diesel,Biogenic 3rd Gen. feedstock,Hydrogenation,Renewable Diesel (HVO),Grid mix electricity
+63,FAME_b_TRE_3rdgen_gm_,Diesel,Biogenic 3rd Gen. feedstock,Transesterification,Diesel (FAME),Grid mix electricity
+103,EtOH_b_FR_3rdgen_gm_,Ethanol,Biogenic 3rd Gen. feedstock,Fermentation,Ethanol,Grid mix electricity
+60,AO_b_EP _3rdgen_gm,"Vegetable oil-based
+fuel",Biogenic 3rd Gen. feedstock,Extraction and purification,Algae oil,Grid mix electricity
+46,CNG_b_AD_gm,CNG,"Biogenic Mixed 1st, 2nd and 3rd Gen. feedstock","Bio-derived LNG via Anaerobic Digestion and separation and
+compression",Compressed Natural Gas (Methane),Grid mix electricity
+47,CNG_b_AD_CCS_gm,CNG,"Biogenic Mixed 1st, 2nd and 3rd Gen. feedstock","Bio-derived LNG via Anaerobic Digestion, separation with Point Source Carbon Capture (PSCC) and
+long-term storage and compression",Compressed Natural Gas (Methane),Grid mix electricity
+45,CNG_b_G_M_gm,CNG,"Biogenic Mixed 1st, 2nd and 3rd Gen. feedstock",Thermochemical gasification followed by methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity
+66,"FT-
+Diesel_b_AD_FT_CCS_gm",Diesel,"Biogenic Mixed 1st, 2nd and 3rd Gen. feedstock","Anaerobic digestion and methane separation and Fischer-Tropsch Synthesis with Point Source Carbon
+Capture (PSCC) and long-term storage",Renewable Diesel (Bio FT-Diesel),Grid mix electricity
+65,FT-Diesel_b_AD_FT_gm,Diesel,"Biogenic Mixed 1st, 2nd and 3rd Gen. feedstock","Anaerobic digestion and methane separation and Fischer-Tropsch
+Synthesis",Renewable Diesel (Bio FT-Diesel),Grid mix electricity
+82,DME_b_AD_DMES_CCS_g m,DME,"Biogenic Mixed 1st, 2nd and 3rd Gen. feedstock","Anaerobic digestion and methane separation and DME Synthesis with Point Source Carbon Capture (PSCC) and
+long-term storage",Dimethyl Ether (DME),Grid mix electricity
+81,DME_b_AD_DMES_gm,DME,"Biogenic Mixed 1st, 2nd and 3rd Gen. feedstock","Anaerobic digestion and methane separation and DME
+Synthesis",Dimethyl Ether (DME),Grid mix electricity
+33,LNG_b_AD_gm,LNG,"Biogenic Mixed 1st, 2nd and 3rd Gen. feedstock","Bio-derived LNG via Anaerobic Digestion, separation and liquefaction",Liquefied Natural     Gas (Methane),Grid mix electricity
+34,LNG_b_AD_CCS_gm,LNG,"Biogenic Mixed 1st, 2nd and 3rd Gen. feedstock","Bio-derived LNG via Anaerobic Digestion, separation with Point Source Carbon Capture (PSCC) and long-term storage
+and liquefaction",Liquefied Natural     Gas (Methane),Grid mix electricity
+32,LNG_b_G_M_gm,LNG,"Biogenic Mixed 1st, 2nd and 3rd Gen. feedstock","Thermochemical gasification followed
+by methanation and liquefaction",Liquefied Natural     Gas (Methane),Grid mix electricity
+91,MeOH_b_AD_MS_gm,Methanol,"Biogenic Mixed 1st, 2nd and 3rd Gen. feedstock","Reforming of Renewable Natural Gas (biomethane from Anaerobic
+Digestion) and Methanol Synthesis",Methanol,Grid mix electricity
+7,"MDO/MGO(ULSFO)_f_b_CP
+_gm",Diesel/Gas oil (ULSFO),Biogenic mixed biomass,CoProcessing (CP) in refinery,"Bio co- processed marine fuel (ISO 8217
 Grades DMX, DMA, DMZ
 and DMB maximum
-0.10 % S)",Grid mix electricity,"MDO/MGO(ULSFO)_f_b_CP
-_gm"
-Diesel/Gas oil (ULSFO),Fossil crude oil,CoProcessing (CP) in refinery,"Bio co- processed marine fuel (ISO 8217
+0.10 % S)",Grid mix electricity
+8,"MDO/MGO(VLSFO)_f_b_CP
+_gm",Diesel/Gas oil (VLSFO),Biogenic mixed biomass,CoProcessing (CP) in refinery,"Bio co- processed marine fuel (ISO 8217
+Grades DMX, DMA, DMZ
+and DMB,
+0.10 < S ≤
+0.50%)",Grid mix electricity
+54,CNG_bCO2_fH2_M_gm,CNG,CO2: Biogenic Point Source Carbon Capture,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity
+56,CNG_bCO2_ibpH2_M_gm,CNG,CO2: Biogenic Point Source Carbon Capture,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity
+55,CNG_bCO2_rH2_M_gm,CNG,CO2: Biogenic Point Source Carbon Capture,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity
+73,"FT-
+Diesel_bCO2_fH2_FT_gm",Diesel,CO2: Biogenic Point Source Carbon Capture,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity
+75,"FT-
+Diesel_bCO2_ibpH2_FT_gm",Diesel,CO2: Biogenic Point Source Carbon Capture,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity
+74,"FT-
+Diesel_bCO2_rH2_FT_gm",Diesel,CO2: Biogenic Point Source Carbon Capture,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity
+41,LNG_bCO2_fH2_M_gm,LNG,CO2: Biogenic Point Source Carbon Capture,Methanation and liquefaction,Liquefied Natural     Gas (Methane),Grid mix electricity
+35,LNG_fCO2_fH2_M_gm,LNG,CO2: Biogenic Point Source Carbon Capture,Methanation and liquefaction,Liquefied Natural     Gas (Methane),Grid mix electricity
+43,LNG_bCO2_ibpH2_M_gm,LNG,CO2: Biogenic Point Source Carbon Capture,Methanation and liquefaction,Liquefied Natural Gas (Methane),Grid mix electricity
+42,LNG_bCO2_rH2_M_gm,LNG,CO2: Biogenic Point Source Carbon Capture,Methanation and liquefaction,Liquefied Natural Gas (Methane),Grid mix electricity
+28,"LPG(Butane)_bCO2_fH2_FT
+_gm",LPG,CO2: Biogenic Point Source Carbon Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity
+30,LPG(Butane)_bCO2_ibpH2_ FT_gm,LPG,CO2: Biogenic Point Source Carbon Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity
+29,"LPG(Butane)_bCO2_rH2_FT
+_gm",LPG,CO2: Biogenic Point Source Carbon Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity
+18,LPG(Propane)_bCO2_fH2_F T_gm,LPG,CO2: Biogenic Point Source Carbon Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity
+20,"LPG(Propane)_bCO2_ibpH2
+_FT_gm",LPG,CO2: Biogenic Point Source Carbon Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity
+19,LPG(Propane)_bCO2_rH2_F T_gm,LPG,CO2: Biogenic Point Source Carbon Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity
+98,MeOH_bCO2_fH2_MS_gm,Methanol,CO2: Biogenic Point Source Carbon Capture,Methanol Synthesis,Methanol,Grid mix electricity
+100,MeOH_bCO2_ibpH2_MS_gm,Methanol,CO2: Biogenic Point Source Carbon Capture,Methanol Synthesis,Methanol,Grid mix electricity
+99,MeOH_bCO2_rH2_MS_gm,Methanol,CO2: Biogenic Point Source Carbon Capture,Methanol Synthesis,Methanol,Grid mix electricity
+51,CNG_rCO2_fH2_M_gm,CNG,CO2: Direct Air Capture,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity
+53,CNG_rCO2_ibpH2_M_gm,CNG,CO2: Direct Air Capture,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity
+52,CNG_rCO2_rH2_M_gm,CNG,CO2: Direct Air Capture,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity
+72,"FT-
+Diesel_rCO2_ibpH2_FT_gm",Diesel,CO2: Direct Air Capture,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity
+70,FT-Diesel_rCO2_fH2_FT_gm,Diesel,CO2: Direct Air Capture,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity
+71,FT-Diesel_rCO2_rH2_FT_gm,Diesel,CO2: Direct Air Capture,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity
+38,LNG_rCO2_fH2_M_gm,LNG,CO2: Direct Air Capture,Methanation and liquefaction,Liquefied Natural     Gas (Methane),Grid mix electricity
+40,LNG_rCO2_ibpH2_M_gm,LNG,CO2: Direct Air Capture,Methanation and liquefaction,Liquefied Natural     Gas (Methane),Grid mix electricity
+39,LNG_rCO2_rH2_M_gm,LNG,CO2: Direct Air Capture,Methanation and liquefaction,Liquefied Natural     Gas (Methane),Grid mix electricity
+25,LPG(Butane)_rCO2_fH2_FT_ gm,LPG,CO2: Direct Air Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity
+27,LPG(Butane)_rCO2_ibpH2_F T_gm,LPG,CO2: Direct Air Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity
+26,LPG(Butane)_rCO2_rH2_FT_ gm,LPG,CO2: Direct Air Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity
+15,"LPG(Propane)_rCO2_fH2_FT
+_gm",LPG,CO2: Direct Air Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity
+17,LPG(Propane)_rCO2_ibpH2_ FT_gm,LPG,CO2: Direct Air Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity
+16,LPG(Propane)_rCO2_rH2_F T_gm,LPG,CO2: Direct Air Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity
+95,MeOH_rCO2_fH2_MS_gm,Methanol,CO2: Direct Air Capture,Methanol Synthesis,Methanol,Grid mix electricity
+97,MeOH_rCO2_ibpH2_MS_gm,Methanol,CO2: Direct Air Capture,Methanol Synthesis,Methanol,Grid mix electricity
+96,MeOH_rCO2_rH2_MS_gm,Methanol,CO2: Direct Air Capture,Methanol Synthesis,Methanol,Grid mix electricity
+48,CNG_fCO2_fH2_M_gm,CNG,CO2: Fossil Point Source Carbon Capture,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity
+50,CNG_fCO2_ibpH2_M_gm,CNG,CO2: Fossil Point Source Carbon Capture,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity
+49,CNG_fCO2_rH2_M_gm,CNG,CO2: Fossil Point Source Carbon Capture,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity
+69,"FT-
+Diesel_fCO2_ibpH2_FT_gm",Diesel,CO2: Fossil Point Source Carbon Capture,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity
+67,FT-Diesel_fCO2_fH2_FT_gm,Diesel,CO2: Fossil Point Source Carbon Capture,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity
+68,FT-Diesel_fCO2_rH2_FT_gm,Diesel,CO2: Fossil Point Source Carbon Capture,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity
+37,LNG_fCO2_ibpH2_M_gm,LNG,CO2: Fossil Point Source Carbon Capture,Methanation and liquefaction,Liquefied Natural     Gas (Methane),Grid mix electricity
+36,LNG_fCO2_rH2_M_gm,LNG,CO2: Fossil Point Source Carbon Capture,Methanation and liquefaction,Liquefied Natural     Gas (Methane),Grid mix electricity
+22,LPG(Butane)_fCO2_fH2_FT_ gm,LPG,CO2: Fossil Point Source Carbon Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity
+24,LPG(Butane)_fCO2_ibpH2_F T_gm,LPG,CO2: Fossil Point Source Carbon Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity
+23,LPG(Butane)_fCO2_rH2_FT_ gm,LPG,CO2: Fossil Point Source Carbon Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity
+12,"LPG(Propane)_fCO2_fH2_FT
+_gm",LPG,CO2: Fossil Point Source Carbon Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity
+14,LPG(Propane)_fCO2_ibpH2_ FT_gm,LPG,CO2: Fossil Point Source Carbon Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity
+92,MeOH_fCO2_fH2_MS_gm,Methanol,CO2: Fossil Point Source Carbon Capture,Methanol Synthesis,Methanol,Grid mix electricity
+94,MeOH_fCO2_ibpH2_MS_gm,Methanol,CO2: Fossil Point Source Carbon Capture,Methanol Synthesis,Methanol,Grid mix electricity
+93,MeOH_fCO2_rH2_MS_gm,Methanol,CO2: Fossil Point Source Carbon Capture,Methanol Synthesis,Methanol,Grid mix electricity
+13,"LPG(Propane)_fCO2_rH2_FT
+_gm",LPG,CO2: Fossil Point Source Carbon Capture23,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity
+117,NH3_f_G_HB_gm,Ammonia,Fossil coal,"Gasification of Coal and Haber Bosch
+process",Ammonia,Grid mix electricity
+118,NH3_f_G_HB_CCS_gm,Ammonia,Fossil coal,Gasification of Coal with Carbon Capture and long-term storage and Haber Bosch process,Ammonia,Grid mix electricity
+108,H2_f_G_CCS _gm,Hydrogen,Fossil coal,"Gasification or Carbonization of Coal with Carbon
+Capture and long- term storage",Hydrogen,Grid mix electricity
+107,H2_f_G_gm,Hydrogen,Fossil coal,"Gasification or Carbonization of
+Coal",Hydrogen,Grid mix electricity
+88,MeOH_f_G_MS_gm,Methanol,Fossil coal,"Gasification of Coal and Methanol
+Synthesis",Methanol,Grid mix electricity
+89,MeOH_f_G_MS_CCS _gm,Methanol,Fossil coal,"Gasification of Coal with Carbon Capture
+& Storage and Methanol Synthesis",Methanol,Grid mix electricity
+7,"MDO/MGO(ULSFO)_f_b_CP
+_gm",Diesel/Gas oil (ULSFO),Fossil crude oil,CoProcessing (CP) in refinery,"Bio co- processed marine fuel (ISO 8217
 Grades DMX, DMA, DMZ
 and DMB maximum
-0.10 % S)",Grid mix electricity,"MDO/MGO(ULSFO)_f_b_CP
-_gm"
-Diesel/Gas oil (ULSFO),Fossil crude oil,CoProcessing (CP) in refinery,"Co-processed marine fuel (ISO 8217
+0.10 % S)",Grid mix electricity
+9,"MDO/MGO(ULSFO)_f_r_CP
+_gm",Diesel/Gas oil (ULSFO),Fossil crude oil,CoProcessing (CP) in refinery,"Co-processed marine fuel (ISO 8217
 Grades DMX, DMA, DMZ
 and DMB
 maximum
-0.10 % S)",Grid mix electricity,"MDO/MGO(ULSFO)_f_r_CP
-_gm"
-Diesel/Gas oil (ULSFO),Recycled carbon,CoProcessing (CP) in refinery,"Co-processed marine fuel (ISO 8217
-Grades DMX, DMA, DMZ
-and DMB
-maximum
-0.10 % S)",Grid mix electricity,"MDO/MGO(ULSFO)_f_r_CP
-_gm"
-Diesel/Gas oil (VLSFO),Biogenic mixed biomass,CoProcessing (CP) in refinery,"Bio co- processed marine fuel (ISO 8217
-Grades DMX, DMA, DMZ
-and DMB,
-0.10 < S ≤
-0.50%)",Grid mix electricity,"MDO/MGO(VLSFO)_f_b_CP
-_gm"
-Diesel/Gas oil (VLSFO),Fossil crude oil,CoProcessing (CP) in refinery,"Bio co- processed marine fuel (ISO 8217
-Grades DMX, DMA, DMZ
-and DMB,
-0.10 < S ≤
-0.50%)",Grid mix electricity,"MDO/MGO(VLSFO)_f_b_CP
-_gm"
-Diesel/Gas oil (VLSFO),Fossil crude oil,CoProcessing (CP) in refinery,"Co-processed marine fuel (ISO 8217
-Grades DMX, DMA, DMZ
-and DMB,
-0.10 < S ≤
-0.50%)",Grid mix electricity,"MDO/MGO(VLSFO)_f_r_CP
-_gm"
-Diesel/Gas oil (VLSFO),Recycled carbon,CoProcessing (CP) in refinery,"Co-processed marine fuel (ISO 8217
-Grades DMX, DMA, DMZ
-and DMB,
-0.10 < S ≤
-0.50%)",Grid mix electricity,"MDO/MGO(VLSFO)_f_r_CP
-_gm"
-Electricity,Renewable,Dedicated Photovoltaic and/or Wind and/or other,Electricity,Renewable electricity,Electricity_renewable
-Hydrogen,Renewable electricity water,"Dedicated Photovoltaic and/or Wind and/or other Electrolysis and
-liquefaction",Hydrogen,Renewable electricity,LH2_EL_r_Liquefied
-Hydrogen,Fossil/Renewable electricity water,Electrolysis and liquefaction,Hydrogen,Grid mix electricity,LH2_EL_gm_Liquefied
-Vegetable oil-based fuel,Biogenic 2nd Gen. feedstock,Extraction and purification,Used oils and fats,Grid mix electricity,UOF_b_EP _2ndgen_gm
-"Vegetable oil-based
-fuel",Biogenic 1st Gen. feedstock,Extraction and purification,Straight Vegetable Oil,Grid mix electricity,SVO_b_EP _1stgen_gm
-"Vegetable oil-based
-fuel",Biogenic 3rd Gen. feedstock,Extraction and purification,Algae oil,Grid mix electricity,AO_b_EP _3rdgen_gm
-Ethanol,Biogenic 1st Gen. feedstock,Fermentation,Ethanol,Grid mix electricity,EtOH_b_FR_1stgen_gm_
-Ethanol,Biogenic 3rd Gen. feedstock,Fermentation,Ethanol,Grid mix electricity,EtOH_b_FR_3rdgen_gm_
-Diesel,CO2: Biogenic Point Source Carbon Capture,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity,"FT-
-Diesel_bCO2_fH2_FT_gm"
-Diesel,CO2: Biogenic Point Source Carbon Capture,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity,"FT-
-Diesel_bCO2_ibpH2_FT_gm"
-Diesel,CO2: Biogenic Point Source Carbon Capture,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity,"FT-
-Diesel_bCO2_rH2_FT_gm"
-Diesel,CO2: Direct Air Capture,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity,"FT-
-Diesel_rCO2_ibpH2_FT_gm"
-Diesel,CO2: Direct Air Capture,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity,FT-Diesel_rCO2_fH2_FT_gm
-Diesel,CO2: Direct Air Capture,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity,FT-Diesel_rCO2_rH2_FT_gm
-Diesel,CO2: Fossil Point Source Carbon Capture,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity,"FT-
-Diesel_fCO2_ibpH2_FT_gm"
-Diesel,CO2: Fossil Point Source Carbon Capture,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity,FT-Diesel_fCO2_fH2_FT_gm
-Diesel,CO2: Fossil Point Source Carbon Capture,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity,FT-Diesel_fCO2_rH2_FT_gm
-Diesel,H2: Fossil steam methane reformation,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity,"FT-
-Diesel_bCO2_fH2_FT_gm"
-Diesel,H2: Fossil steam methane reformation,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity,FT-Diesel_fCO2_fH2_FT_gm
-Diesel,H2: Fossil steam methane reformation,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity,FT-Diesel_rCO2_fH2_FT_gm
-Diesel,H2: from Renewable electricity,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity,"FT-
-Diesel_bCO2_rH2_FT_gm"
-Diesel,H2: from Renewable electricity,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity,FT-Diesel_fCO2_rH2_FT_gm
-Diesel,H2: from Renewable electricity,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity,FT-Diesel_rCO2_rH2_FT_gm
-Diesel,H2: Industrial by- product hydrogen,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity,"FT-
-Diesel_bCO2_ibpH2_FT_gm"
-Diesel,H2: Industrial by- product hydrogen,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity,"FT-
-Diesel_fCO2_ibpH2_FT_gm"
-Diesel,H2: Industrial by- product hydrogen,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity,"FT-
-Diesel_rCO2_ibpH2_FT_gm"
-LPG,CO2: Biogenic Point Source Carbon Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity,"LPG(Butane)_bCO2_fH2_FT
-_gm"
-LPG,CO2: Biogenic Point Source Carbon Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity,LPG(Butane)_bCO2_ibpH2_ FT_gm
-LPG,CO2: Biogenic Point Source Carbon Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity,"LPG(Butane)_bCO2_rH2_FT
-_gm"
-LPG,CO2: Biogenic Point Source Carbon Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity,LPG(Propane)_bCO2_fH2_F T_gm
-LPG,CO2: Biogenic Point Source Carbon Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity,"LPG(Propane)_bCO2_ibpH2
-_FT_gm"
-LPG,CO2: Biogenic Point Source Carbon Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity,LPG(Propane)_bCO2_rH2_F T_gm
-LPG,CO2: Direct Air Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity,LPG(Butane)_rCO2_fH2_FT_ gm
-LPG,CO2: Direct Air Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity,LPG(Butane)_rCO2_ibpH2_F T_gm
-LPG,CO2: Direct Air Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity,LPG(Butane)_rCO2_rH2_FT_ gm
-LPG,CO2: Direct Air Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity,"LPG(Propane)_rCO2_fH2_FT
-_gm"
-LPG,CO2: Direct Air Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity,LPG(Propane)_rCO2_ibpH2_ FT_gm
-LPG,CO2: Direct Air Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity,LPG(Propane)_rCO2_rH2_F T_gm
-LPG,CO2: Fossil Point Source Carbon Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity,LPG(Butane)_fCO2_fH2_FT_ gm
-LPG,CO2: Fossil Point Source Carbon Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity,LPG(Butane)_fCO2_ibpH2_F T_gm
-LPG,CO2: Fossil Point Source Carbon Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity,LPG(Butane)_fCO2_rH2_FT_ gm
-LPG,CO2: Fossil Point Source Carbon Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity,"LPG(Propane)_fCO2_fH2_FT
-_gm"
-LPG,CO2: Fossil Point Source Carbon Capture,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity,LPG(Propane)_fCO2_ibpH2_ FT_gm
-LPG,CO2: Fossil Point Source Carbon Capture23,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity,"LPG(Propane)_fCO2_rH2_FT
-_gm"
-LPG,H2: Fossil steam methane reformation,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity,"LPG(Butane)_bCO2_fH2_FT
-_gm"
-LPG,H2: Fossil steam methane reformation,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity,LPG(Butane)_fCO2_fH2_FT_ gm
-LPG,H2: Fossil steam methane reformation,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity,LPG(Butane)_rCO2_fH2_FT_ gm
-LPG,H2: Fossil steam methane reformation,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity,LPG(Propane)_bCO2_fH2_F T_gm
-LPG,H2: Fossil steam methane reformation,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity,"LPG(Propane)_fCO2_fH2_FT
-_gm"
-LPG,H2: Fossil steam methane reformation,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity,"LPG(Propane)_rCO2_fH2_FT
-_gm"
-LPG,H2: from Renewable electricity,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity,"LPG(Butane)_bCO2_rH2_FT
-_gm"
-LPG,H2: from Renewable electricity,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity,LPG(Butane)_fCO2_rH2_FT_ gm
-LPG,H2: from Renewable electricity,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity,LPG(Butane)_rCO2_rH2_FT_ gm
-LPG,H2: from Renewable electricity,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity,LPG(Propane)_bCO2_rH2_F T_gm
-LPG,H2: from Renewable electricity,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity,"LPG(Propane)_fCO2_rH2_FT
-_gm"
-LPG,H2: from Renewable electricity,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity,LPG(Propane)_rCO2_rH2_F T_gm
-LPG,H2: Industrial by- product hydrogen,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity,LPG(Butane)_bCO2_ibpH2_ FT_gm
-LPG,H2: Industrial by- product hydrogen,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity,LPG(Butane)_fCO2_ibpH2_F T_gm
-LPG,H2: Industrial by- product hydrogen,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity,LPG(Butane)_rCO2_ibpH2_F T_gm
-LPG,H2: Industrial by- product hydrogen,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity,"LPG(Propane)_bCO2_ibpH2
-_FT_gm"
-LPG,H2: Industrial by- product hydrogen,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity,LPG(Propane)_fCO2_ibpH2_ FT_gm
-LPG,H2: Industrial by- product hydrogen,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity,LPG(Propane)_rCO2_ibpH2_ FT_gm
-Ammonia,Biogenic 2nd Gen. feedstock,Gasification,Ammonia,Grid mix electricity,NH3_b_G_2ndgen_gm_
-DME,Biogenic 1st Gen. feedstock,Gasification and DME Synthesis,Dimethyl Ether (DME),Grid mix electricity,DME_b_G_DMES_1stgen_g m_
-DME,Biogenic 2nd Gen. feedstock,Gasification and DME Synthesis,Dimethyl Ether (DME),Grid mix electricity,"DME-b-G-
-DMES_2ndgen_gm_"
-DME,Fossil natural gas,Gasification and DME Synthesis,Dimethyl Ether (DME),Grid mix electricity,DME_f_G_DMES_gm
-Diesel,Biogenic 1st Gen. feedstock,Gasification and Fischer-Tropsch Synthesis,Renewable Diesel (Bio FT-Diesel),Grid mix electricity,"FT-
-Diesel_b_G_FT_1stgen_gm_"
-Hydrogen,Biogenic 2nd Gen. feedstock,Gasification of biomass and Syngas separation with Point Source Carbon Capture (PSCC) and long-term storage,Hydrogen,Grid mix electricity,H2_b_G_SS_CCS_2ndgen_ gm_
-Methanol,Biogenic 2nd and 3rd Gen. feedstock,"Gasification of Biomass and
-Methanol Synthesis",Methanol,Grid mix electricity,MeOH_b_G_MS_gm
-Ammonia,Fossil coal,"Gasification of Coal and Haber Bosch
-process",Ammonia,Grid mix electricity,NH3_f_G_HB_gm
-Methanol,Fossil coal,"Gasification of Coal and Methanol
-Synthesis",Methanol,Grid mix electricity,MeOH_f_G_MS_gm
-Ammonia,Fossil coal,Gasification of Coal with Carbon Capture and long-term storage and Haber Bosch process,Ammonia,Grid mix electricity,NH3_f_G_HB_CCS_gm
-Methanol,Fossil coal,"Gasification of Coal with Carbon Capture
-& Storage and Methanol Synthesis",Methanol,Grid mix electricity,MeOH_f_G_MS_CCS _gm
-Hydrogen,Fossil coal,"Gasification or Carbonization of Coal with Carbon
-Capture and long- term storage",Hydrogen,Grid mix electricity,H2_f_G_CCS _gm
-Hydrogen,Fossil coal,"Gasification or Carbonization of
-Coal",Hydrogen,Grid mix electricity,H2_f_G_gm
-Ammonia,H2: Fossil steam methane reformation,Haber Bosch process,Ammonia,Grid mix electricity,NH3_rN2_fH2_HB_gm
-Ammonia,H2: from Renewable electricity,Haber Bosch process,Ammonia,Grid mix electricity,NH3_rN2_rH2_HB_gm
-Ammonia,H2: Industrial by- product hydrogen,Haber Bosch process,Ammonia,Grid mix electricity,NH3_rN2_ibpH2_HB_gm
-Ammonia,N2: separated with renewable electricity,Haber Bosch process,Ammonia,Grid mix electricity,NH3_rN2_fH2_HB_gm
-Ammonia,N2: separated with renewable electricity,Haber Bosch process,Ammonia,Grid mix electricity,NH3_rN2_ibpH2_HB_gm
-Ammonia,N2: separated with renewable electricity,Haber Bosch process,Ammonia,Grid mix electricity,NH3_rN2_rH2_HB_gm
-Diesel,Biogenic 1st Gen. feedstock,Hydrogenation,Renewable Diesel (HVO),Grid mix electricity,HVO_b_HD_1stgen_gm_
-Diesel,Biogenic 2nd Gen. feedstock,Hydrogenation,Renewable Diesel (HVO),Grid mix electricity,HVO_b_HD_2ndgen_gm_
-Diesel,Biogenic 3rd Gen. feedstock,Hydrogenation,Renewable Diesel (HVO),Grid mix electricity,HVO_b_HD_3rdgen_gm_
-Diesel,Biogenic 2nd Gen. feedstock,Hydrothermal liquefaction and upgrading,Hydrothermal Liquefaction (HTL) Oil,Grid mix electricity,HTL_b_HTL_2ndgen_gm_
-CNG,CO2: Biogenic Point Source Carbon Capture,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity,CNG_bCO2_fH2_M_gm
-CNG,CO2: Biogenic Point Source Carbon Capture,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity,CNG_bCO2_ibpH2_M_gm
-CNG,CO2: Biogenic Point Source Carbon Capture,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity,CNG_bCO2_rH2_M_gm
-CNG,CO2: Direct Air Capture,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity,CNG_rCO2_fH2_M_gm
-CNG,CO2: Direct Air Capture,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity,CNG_rCO2_ibpH2_M_gm
-CNG,CO2: Direct Air Capture,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity,CNG_rCO2_rH2_M_gm
-CNG,CO2: Fossil Point Source Carbon Capture,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity,CNG_fCO2_fH2_M_gm
-CNG,CO2: Fossil Point Source Carbon Capture,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity,CNG_fCO2_ibpH2_M_gm
-CNG,CO2: Fossil Point Source Carbon Capture,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity,CNG_fCO2_rH2_M_gm
-CNG,H2: Fossil steam methane reformation,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity,CNG_bCO2_fH2_M_gm
-CNG,H2: Fossil steam methane reformation,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity,CNG_fCO2_fH2_M_gm
-CNG,H2: Fossil steam methane reformation,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity,CNG_rCO2_fH2_M_gm
-CNG,H2: from Renewable electricity,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity,CNG_bCO2_rH2_M_gm
-CNG,H2: from Renewable electricity,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity,CNG_fCO2_rH2_M_gm
-CNG,H2: from Renewable electricity,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity,CNG_rCO2_rH2_M_gm
-CNG,H2: Industrial by- product hydrogen,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity,CNG_bCO2_ibpH2_M_gm
-CNG,H2: Industrial by- product hydrogen,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity,CNG_fCO2_ibpH2_M_gm
-CNG,H2: Industrial by- product hydrogen,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity,CNG_rCO2_ibpH2_M_gm
-LNG,CO2: Biogenic Point Source Carbon Capture,Methanation and liquefaction,Liquefied Natural     Gas (Methane),Grid mix electricity,LNG_bCO2_fH2_M_gm
-LNG,CO2: Biogenic Point Source Carbon Capture,Methanation and liquefaction,Liquefied Natural     Gas (Methane),Grid mix electricity,LNG_fCO2_fH2_M_gm
-LNG,CO2: Biogenic Point Source Carbon Capture,Methanation and liquefaction,Liquefied Natural Gas (Methane),Grid mix electricity,LNG_bCO2_ibpH2_M_gm
-LNG,CO2: Biogenic Point Source Carbon Capture,Methanation and liquefaction,Liquefied Natural Gas (Methane),Grid mix electricity,LNG_bCO2_rH2_M_gm
-LNG,CO2: Direct Air Capture,Methanation and liquefaction,Liquefied Natural     Gas (Methane),Grid mix electricity,LNG_rCO2_fH2_M_gm
-LNG,CO2: Direct Air Capture,Methanation and liquefaction,Liquefied Natural     Gas (Methane),Grid mix electricity,LNG_rCO2_ibpH2_M_gm
-LNG,CO2: Direct Air Capture,Methanation and liquefaction,Liquefied Natural     Gas (Methane),Grid mix electricity,LNG_rCO2_rH2_M_gm
-LNG,CO2: Fossil Point Source Carbon Capture,Methanation and liquefaction,Liquefied Natural     Gas (Methane),Grid mix electricity,LNG_fCO2_ibpH2_M_gm
-LNG,CO2: Fossil Point Source Carbon Capture,Methanation and liquefaction,Liquefied Natural     Gas (Methane),Grid mix electricity,LNG_fCO2_rH2_M_gm
-LNG,H2: Fossil steam methane reformation,Methanation and liquefaction,Liquefied Natural     Gas (Methane),Grid mix electricity,LNG_bCO2_fH2_M_gm
-LNG,H2: Fossil steam methane reformation,Methanation and liquefaction,Liquefied Natural     Gas (Methane),Grid mix electricity,LNG_fCO2_fH2_M_gm
-LNG,H2: Fossil steam methane reformation,Methanation and liquefaction,Liquefied Natural     Gas (Methane),Grid mix electricity,LNG_rCO2_fH2_M_gm
-LNG,H2: from Renewable electricity,Methanation and liquefaction,Liquefied Natural     Gas (Methane),Grid mix electricity,LNG_fCO2_rH2_M_gm
-LNG,H2: from Renewable electricity,Methanation and liquefaction,Liquefied Natural     Gas (Methane),Grid mix electricity,LNG_rCO2_rH2_M_gm
-LNG,H2: from Renewable electricity,Methanation and liquefaction,Liquefied Natural Gas (Methane),Grid mix electricity,LNG_bCO2_rH2_M_gm
-LNG,H2: Industrial by- product hydrogen,Methanation and liquefaction,Liquefied Natural     Gas (Methane),Grid mix electricity,LNG_fCO2_ibpH2_M_gm
-LNG,H2: Industrial by- product hydrogen,Methanation and liquefaction,Liquefied Natural     Gas (Methane),Grid mix electricity,LNG_rCO2_ibpH2_M_gm
-LNG,H2: Industrial by- product hydrogen,Methanation and liquefaction,Liquefied Natural Gas (Methane),Grid mix electricity,LNG_bCO2_ibpH2_M_gm
-Hydrogen,Fossil natural gas,"Methane Pyrolysis into carbon and
-hydrogen",Hydrogen,Grid mix electricity,H2_f_MPO_gm
-Ammonia,Fossil natural gas,"Methane Pyrolysis into pure carbon and
-hydrogen and Haber Bosch process",Ammonia,Grid mix electricity,NH3_f_MPO_HB_gm
-Methanol,CO2: Biogenic Point Source Carbon Capture,Methanol Synthesis,Methanol,Grid mix electricity,MeOH_bCO2_fH2_MS_gm
-Methanol,CO2: Biogenic Point Source Carbon Capture,Methanol Synthesis,Methanol,Grid mix electricity,MeOH_bCO2_ibpH2_MS_gm
-Methanol,CO2: Biogenic Point Source Carbon Capture,Methanol Synthesis,Methanol,Grid mix electricity,MeOH_bCO2_rH2_MS_gm
-Methanol,CO2: Direct Air Capture,Methanol Synthesis,Methanol,Grid mix electricity,MeOH_rCO2_fH2_MS_gm
-Methanol,CO2: Direct Air Capture,Methanol Synthesis,Methanol,Grid mix electricity,MeOH_rCO2_ibpH2_MS_gm
-Methanol,CO2: Direct Air Capture,Methanol Synthesis,Methanol,Grid mix electricity,MeOH_rCO2_rH2_MS_gm
-Methanol,CO2: Fossil Point Source Carbon Capture,Methanol Synthesis,Methanol,Grid mix electricity,MeOH_fCO2_fH2_MS_gm
-Methanol,CO2: Fossil Point Source Carbon Capture,Methanol Synthesis,Methanol,Grid mix electricity,MeOH_fCO2_ibpH2_MS_gm
-Methanol,CO2: Fossil Point Source Carbon Capture,Methanol Synthesis,Methanol,Grid mix electricity,MeOH_fCO2_rH2_MS_gm
-Methanol,H2: Fossil steam methane reformation,Methanol Synthesis,Methanol,Grid mix electricity,MeOH_bCO2_fH2_MS_gm
-Methanol,H2: Fossil steam methane reformation,Methanol Synthesis,Methanol,Grid mix electricity,MeOH_fCO2_fH2_MS_gm
-Methanol,H2: Fossil steam methane reformation,Methanol Synthesis,Methanol,Grid mix electricity,MeOH_rCO2_fH2_MS_gm
-Methanol,H2: from Renewable electricity,Methanol Synthesis,Methanol,Grid mix electricity,MeOH_bCO2_rH2_MS_gm
-Methanol,H2: from Renewable electricity,Methanol Synthesis,Methanol,Grid mix electricity,MeOH_fCO2_rH2_MS_gm
-Methanol,H2: from Renewable electricity,Methanol Synthesis,Methanol,Grid mix electricity,MeOH_rCO2_rH2_MS_gm
-Methanol,H2: Industrial by- product hydrogen,Methanol Synthesis,Methanol,Grid mix electricity,MeOH_bCO2_ibpH2_MS_gm
-Methanol,H2: Industrial by- product hydrogen,Methanol Synthesis,Methanol,Grid mix electricity,MeOH_fCO2_ibpH2_MS_gm
-Methanol,H2: Industrial by- product hydrogen,Methanol Synthesis,Methanol,Grid mix electricity,MeOH_rCO2_ibpH2_MS_gm
-Ethanol,Biogenic 2nd Gen. feedstock,Pretreatment/hydroly sis step and Fermentation,Ethanol,Grid mix electricity,EtOH_b_FR_2ndgen_gm_
-Diesel,Biogenic 2nd Gen. feedstock,"Pyrolysis, Fast Pyrolysis and/or Catalytic Fast
-Pyrolysis and upgrading",Upgraded Pyrolysis Oil,Grid mix electricity,UPO_b_UPO_2ndgen_gm_
-Methanol,"Biogenic Mixed 1st, 2nd and 3rd Gen. feedstock","Reforming of Renewable Natural Gas (biomethane from Anaerobic
-Digestion) and Methanol Synthesis",Methanol,Grid mix electricity,MeOH_b_AD_MS_gm
-LNG,Fossil natural gas,Standard LNG production including liquefaction,Liquefied Natural     Gas (Methane),Grid mix electricity,LNG_f_SLP_gm
-Diesel/Gas oil (ULSFO),Fossil crude oil,Standard refinery process,"Marine Diesel/Gas Oil (ISO 8217
+0.10 % S)",Grid mix electricity
+5,"MDO/MGO(ULSFO)_f_SR_g
+m",Diesel/Gas oil (ULSFO),Fossil crude oil,Standard refinery process,"Marine Diesel/Gas Oil (ISO 8217
 Grades DMX, DMA, DMZ
 and DMB maximum
-0.10 % S)",Grid mix electricity,"MDO/MGO(ULSFO)_f_SR_g
-m"
-Diesel/Gas oil (VLSFO),Fossil crude oil,Standard refinery process,"Marine Diesel/Gas Oil (ISO 8217
+0.10 % S)",Grid mix electricity
+8,"MDO/MGO(VLSFO)_f_b_CP
+_gm",Diesel/Gas oil (VLSFO),Fossil crude oil,CoProcessing (CP) in refinery,"Bio co- processed marine fuel (ISO 8217
 Grades DMX, DMA, DMZ
 and DMB,
 0.10 < S ≤
-0.50%)",Grid mix electricity,"MDO/MGO(VLSFO)_f_SR_g
-m"
-Ethane,Fossil natural gas,Standard refinery process,Ethane,Grid mix electricity,Ethane_f_SR_gm
-HFO (HSHFO),Fossil crude oil,Standard refinery process,"Heavy Fuel Oil
+0.50%)",Grid mix electricity
+10,"MDO/MGO(VLSFO)_f_r_CP
+_gm",Diesel/Gas oil (VLSFO),Fossil crude oil,CoProcessing (CP) in refinery,"Co-processed marine fuel (ISO 8217
+Grades DMX, DMA, DMZ
+and DMB,
+0.10 < S ≤
+0.50%)",Grid mix electricity
+6,"MDO/MGO(VLSFO)_f_SR_g
+m",Diesel/Gas oil (VLSFO),Fossil crude oil,Standard refinery process,"Marine Diesel/Gas Oil (ISO 8217
+Grades DMX, DMA, DMZ
+and DMB,
+0.10 < S ≤
+0.50%)",Grid mix electricity
+2,HFO(HSHFO)_f_SR_gm,HFO (HSHFO),Fossil crude oil,Standard refinery process,"Heavy Fuel Oil
 (ISO 8217
 Grades RME, RMG and RMK
-exceeding 0.50% S)",Grid mix electricity,HFO(HSHFO)_f_SR_gm
-HFO (VLSFO),Fossil crude oil,Standard refinery process,"Heavy Fuel Oil
+exceeding 0.50% S)",Grid mix electricity
+1,HFO(VLSFO)_f_SR_gm,HFO (VLSFO),Fossil crude oil,Standard refinery process,"Heavy Fuel Oil
 (ISO 8217
 Grades RME, RMG and RMK, 0.10 <
-S ≤ 0.50%)",Grid mix electricity,HFO(VLSFO)_f_SR_gm
-LFO (ULSFO),Fossil crude oil,Standard refinery process,"Light Fuel Oil (ISO 8217
+S ≤ 0.50%)",Grid mix electricity
+3,LFO(ULSFO)_f_SR_gm,LFO (ULSFO),Fossil crude oil,Standard refinery process,"Light Fuel Oil (ISO 8217
 Grades RMA, RMB and RMD
-maximum 0.10% S)",Grid mix electricity,LFO(ULSFO)_f_SR_gm
-LFO (VLSFO),Fossil crude oil,Standard refinery process,"Light Fuel Oil (ISO 8217
+maximum 0.10% S)",Grid mix electricity
+4,LFO(VLSFO)_f_SR_gm,LFO (VLSFO),Fossil crude oil,Standard refinery process,"Light Fuel Oil (ISO 8217
 Grades RMA, RMB and RMD, 0.10 <
-S ≤ 0.50%)",Grid mix electricity,LFO(VLSFO)_f_SR_gm
-LPG,Fossil crude oil,Standard refinery process and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity,LPG(Butane)_f_SR_gm
-LPG22,Fossil crude oil,Standard refinery process and liquefaction,"Liquefied Petroleum
-Gas (Propane)",Grid mix electricity,LPG(Propane)_f_SR_gm
-CNG,Fossil natural gas,"Standard refinery process and
+S ≤ 0.50%)",Grid mix electricity
+21,LPG(Butane)_f_SR_gm,LPG,Fossil crude oil,Standard refinery process and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity
+11,LPG(Propane)_f_SR_gm,LPG22,Fossil crude oil,Standard refinery process and liquefaction,"Liquefied Petroleum
+Gas (Propane)",Grid mix electricity
+114,NH3_f_MPO_HB_gm,Ammonia,Fossil natural gas,"Methane Pyrolysis into pure carbon and
+hydrogen and Haber Bosch process",Ammonia,Grid mix electricity
+115,NH3_f_SMR_HB_gm,Ammonia,Fossil natural gas,"Steam Methane Reformation of Natural Gas and Haber Bosch
+process",Ammonia,Grid mix electricity
+116,NH3_f_SMR_HB_CCS_gm,Ammonia,Fossil natural gas,"Steam Methane Reformation of Natural Gas with Point Source Carbon Capture (PSCC) and long-term storage
+and Haber Bosch process",Ammonia,Grid mix electricity
+44,CNG_f_SR_gm,CNG,Fossil natural gas,"Standard refinery process and
 compression","Compressed Natural Gas
-(Methane)",Grid mix electricity,CNG_f_SR_gm
-Hydrogen,Fossil natural gas,Steam Methane Reformation of Natural Gas,Hydrogen,Grid mix electricity,H2_f_SMR_gm
-Ammonia,Fossil natural gas,"Steam Methane Reformation of Natural Gas and Haber Bosch
-process",Ammonia,Grid mix electricity,NH3_f_SMR_HB_gm
-Methanol,Fossil natural gas,"Steam Methane Reformation of Natural Gas with Carbon Capture &
-Storage and Methanol Synthesis",Methanol,Grid mix electricity,MeOH_f_SMR_CCS_gm
-Ammonia,Fossil natural gas,"Steam Methane Reformation of Natural Gas with Point Source Carbon Capture (PSCC) and long-term storage
-and Haber Bosch process",Ammonia,Grid mix electricity,NH3_f_SMR_HB_CCS_gm
-Hydrogen,Fossil natural gas,"Steam Methane Reformation of Natural Gas with
-Carbon Capture and long-term storage",Hydrogen,Grid mix electricity,H2_f_SMR_CCS_gm
-Methanol,Fossil natural gas,"Steam Methane Reformation of
-Natural Gas and Methanol Synthesis",Methanol,Grid mix electricity,MeOH_f_SMR_gm
-Ammonia,H2: Fossil steam methane reformation,Thermochemical Cycles or Electrolysis,Ammonia,Nuclear,NH3_gmN2_fH2_EL_n
-Ammonia,H2: from Renewable electricity,Thermochemical Cycles or Electrolysis,Ammonia,Nuclear,NH3_gmN2_rH2_EL_n
-Ammonia,H2: Industrial by- product hydrogen,Thermochemical Cycles or Electrolysis,Ammonia,Nuclear,NH3_gmN2_ibpH2_EL_n
-Ammonia,N2: separated with grid mix electricity,Thermochemical Cycles or Electrolysis,Ammonia,Nuclear,NH3_gmN2_fH2_EL_n
-Ammonia,N2: separated with grid mix electricity,Thermochemical Cycles or Electrolysis,Ammonia,Nuclear,NH3_gmN2_ibpH2_EL_n
-Ammonia,N2: separated with grid mix electricity,Thermochemical Cycles or Electrolysis,Ammonia,Nuclear,NH3_gmN2_rH2_EL_n
-Hydrogen,Nuclear electricity water,Thermochemical Cycles or Electrolysis and liquefaction,Hydrogen,Nuclear,LH2_EL_n_Liquefied
-CNG,"Biogenic Mixed 1st, 2nd and 3rd Gen. feedstock",Thermochemical gasification followed by methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity,CNG_b_G_M_gm
-LNG,"Biogenic Mixed 1st, 2nd and 3rd Gen. feedstock","Thermochemical gasification followed
-by methanation and liquefaction",Liquefied Natural     Gas (Methane),Grid mix electricity,LNG_b_G_M_gm
-Diesel,Biogenic 1st Gen. feedstock,Transesterification,Diesel (FAME),Grid mix electricity,FAME_b_TRE_1stgen_gm_
-Diesel,Biogenic 2nd Gen. feedstock,Transesterification,Diesel (FAME),Grid mix electricity,FAME_b_TRE_2ndgen_gm_
-Diesel,Biogenic 3rd Gen. feedstock,Transesterification,Diesel (FAME),Grid mix electricity,FAME_b_TRE_3rdgen_gm_
+(Methane)",Grid mix electricity
+83,DME_f_G_DMES_gm,DME,Fossil natural gas,Gasification and DME Synthesis,Dimethyl Ether (DME),Grid mix electricity
+57,Ethane_f_SR_gm,Ethane,Fossil natural gas,Standard refinery process,Ethane,Grid mix electricity
+106,H2_f_MPO_gm,Hydrogen,Fossil natural gas,"Methane Pyrolysis into carbon and
+hydrogen",Hydrogen,Grid mix electricity
+104,H2_f_SMR_gm,Hydrogen,Fossil natural gas,Steam Methane Reformation of Natural Gas,Hydrogen,Grid mix electricity
+105,H2_f_SMR_CCS_gm,Hydrogen,Fossil natural gas,"Steam Methane Reformation of Natural Gas with
+Carbon Capture and long-term storage",Hydrogen,Grid mix electricity
+31,LNG_f_SLP_gm,LNG,Fossil natural gas,Standard LNG production including liquefaction,Liquefied Natural     Gas (Methane),Grid mix electricity
+87,MeOH_f_SMR_CCS_gm,Methanol,Fossil natural gas,"Steam Methane Reformation of Natural Gas with Carbon Capture &
+Storage and Methanol Synthesis",Methanol,Grid mix electricity
+86,MeOH_f_SMR_gm,Methanol,Fossil natural gas,"Steam Methane Reformation of
+Natural Gas and Methanol Synthesis",Methanol,Grid mix electricity
+126,Electricity_gm,Electricity,Fossil/Renewable,'-,Electricity,Grid mix electricity
+111,LH2_EL_gm_Liquefied,Hydrogen,Fossil/Renewable electricity water,Electrolysis and liquefaction,Hydrogen,Grid mix electricity
+121,NH3_rN2_fH2_HB_gm,Ammonia,H2: Fossil steam methane reformation,Haber Bosch process,Ammonia,Grid mix electricity
+123,NH3_gmN2_fH2_EL_n,Ammonia,H2: Fossil steam methane reformation,Thermochemical Cycles or Electrolysis,Ammonia,Nuclear
+54,CNG_bCO2_fH2_M_gm,CNG,H2: Fossil steam methane reformation,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity
+48,CNG_fCO2_fH2_M_gm,CNG,H2: Fossil steam methane reformation,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity
+51,CNG_rCO2_fH2_M_gm,CNG,H2: Fossil steam methane reformation,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity
+73,"FT-
+Diesel_bCO2_fH2_FT_gm",Diesel,H2: Fossil steam methane reformation,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity
+67,FT-Diesel_fCO2_fH2_FT_gm,Diesel,H2: Fossil steam methane reformation,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity
+70,FT-Diesel_rCO2_fH2_FT_gm,Diesel,H2: Fossil steam methane reformation,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity
+41,LNG_bCO2_fH2_M_gm,LNG,H2: Fossil steam methane reformation,Methanation and liquefaction,Liquefied Natural     Gas (Methane),Grid mix electricity
+35,LNG_fCO2_fH2_M_gm,LNG,H2: Fossil steam methane reformation,Methanation and liquefaction,Liquefied Natural     Gas (Methane),Grid mix electricity
+38,LNG_rCO2_fH2_M_gm,LNG,H2: Fossil steam methane reformation,Methanation and liquefaction,Liquefied Natural     Gas (Methane),Grid mix electricity
+28,"LPG(Butane)_bCO2_fH2_FT
+_gm",LPG,H2: Fossil steam methane reformation,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity
+22,LPG(Butane)_fCO2_fH2_FT_ gm,LPG,H2: Fossil steam methane reformation,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity
+25,LPG(Butane)_rCO2_fH2_FT_ gm,LPG,H2: Fossil steam methane reformation,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity
+18,LPG(Propane)_bCO2_fH2_F T_gm,LPG,H2: Fossil steam methane reformation,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity
+12,"LPG(Propane)_fCO2_fH2_FT
+_gm",LPG,H2: Fossil steam methane reformation,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity
+15,"LPG(Propane)_rCO2_fH2_FT
+_gm",LPG,H2: Fossil steam methane reformation,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity
+98,MeOH_bCO2_fH2_MS_gm,Methanol,H2: Fossil steam methane reformation,Methanol Synthesis,Methanol,Grid mix electricity
+92,MeOH_fCO2_fH2_MS_gm,Methanol,H2: Fossil steam methane reformation,Methanol Synthesis,Methanol,Grid mix electricity
+95,MeOH_rCO2_fH2_MS_gm,Methanol,H2: Fossil steam methane reformation,Methanol Synthesis,Methanol,Grid mix electricity
+120,NH3_rN2_rH2_HB_gm,Ammonia,H2: from Renewable electricity,Haber Bosch process,Ammonia,Grid mix electricity
+124,NH3_gmN2_rH2_EL_n,Ammonia,H2: from Renewable electricity,Thermochemical Cycles or Electrolysis,Ammonia,Nuclear
+55,CNG_bCO2_rH2_M_gm,CNG,H2: from Renewable electricity,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity
+49,CNG_fCO2_rH2_M_gm,CNG,H2: from Renewable electricity,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity
+52,CNG_rCO2_rH2_M_gm,CNG,H2: from Renewable electricity,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity
+74,"FT-
+Diesel_bCO2_rH2_FT_gm",Diesel,H2: from Renewable electricity,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity
+68,FT-Diesel_fCO2_rH2_FT_gm,Diesel,H2: from Renewable electricity,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity
+71,FT-Diesel_rCO2_rH2_FT_gm,Diesel,H2: from Renewable electricity,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity
+36,LNG_fCO2_rH2_M_gm,LNG,H2: from Renewable electricity,Methanation and liquefaction,Liquefied Natural     Gas (Methane),Grid mix electricity
+39,LNG_rCO2_rH2_M_gm,LNG,H2: from Renewable electricity,Methanation and liquefaction,Liquefied Natural     Gas (Methane),Grid mix electricity
+42,LNG_bCO2_rH2_M_gm,LNG,H2: from Renewable electricity,Methanation and liquefaction,Liquefied Natural Gas (Methane),Grid mix electricity
+29,"LPG(Butane)_bCO2_rH2_FT
+_gm",LPG,H2: from Renewable electricity,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity
+23,LPG(Butane)_fCO2_rH2_FT_ gm,LPG,H2: from Renewable electricity,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity
+26,LPG(Butane)_rCO2_rH2_FT_ gm,LPG,H2: from Renewable electricity,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity
+19,LPG(Propane)_bCO2_rH2_F T_gm,LPG,H2: from Renewable electricity,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity
+13,"LPG(Propane)_fCO2_rH2_FT
+_gm",LPG,H2: from Renewable electricity,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity
+16,LPG(Propane)_rCO2_rH2_F T_gm,LPG,H2: from Renewable electricity,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity
+99,MeOH_bCO2_rH2_MS_gm,Methanol,H2: from Renewable electricity,Methanol Synthesis,Methanol,Grid mix electricity
+93,MeOH_fCO2_rH2_MS_gm,Methanol,H2: from Renewable electricity,Methanol Synthesis,Methanol,Grid mix electricity
+96,MeOH_rCO2_rH2_MS_gm,Methanol,H2: from Renewable electricity,Methanol Synthesis,Methanol,Grid mix electricity
+122,NH3_rN2_ibpH2_HB_gm,Ammonia,H2: Industrial by- product hydrogen,Haber Bosch process,Ammonia,Grid mix electricity
+125,NH3_gmN2_ibpH2_EL_n,Ammonia,H2: Industrial by- product hydrogen,Thermochemical Cycles or Electrolysis,Ammonia,Nuclear
+56,CNG_bCO2_ibpH2_M_gm,CNG,H2: Industrial by- product hydrogen,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity
+50,CNG_fCO2_ibpH2_M_gm,CNG,H2: Industrial by- product hydrogen,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity
+53,CNG_rCO2_ibpH2_M_gm,CNG,H2: Industrial by- product hydrogen,Methanation and compression,Compressed Natural Gas (Methane),Grid mix electricity
+75,"FT-
+Diesel_bCO2_ibpH2_FT_gm",Diesel,H2: Industrial by- product hydrogen,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity
+69,"FT-
+Diesel_fCO2_ibpH2_FT_gm",Diesel,H2: Industrial by- product hydrogen,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity
+72,"FT-
+Diesel_rCO2_ibpH2_FT_gm",Diesel,H2: Industrial by- product hydrogen,Fischer-Tropsch Synthesis,Renewable Diesel (FT- Diesel),Grid mix electricity
+113,LH2_ _ibp_gm _Liquefied,Hydrogen,H2: Industrial by- product hydrogen,"",Hydrogen,Grid mix electricity
+37,LNG_fCO2_ibpH2_M_gm,LNG,H2: Industrial by- product hydrogen,Methanation and liquefaction,Liquefied Natural     Gas (Methane),Grid mix electricity
+40,LNG_rCO2_ibpH2_M_gm,LNG,H2: Industrial by- product hydrogen,Methanation and liquefaction,Liquefied Natural     Gas (Methane),Grid mix electricity
+43,LNG_bCO2_ibpH2_M_gm,LNG,H2: Industrial by- product hydrogen,Methanation and liquefaction,Liquefied Natural Gas (Methane),Grid mix electricity
+30,LPG(Butane)_bCO2_ibpH2_ FT_gm,LPG,H2: Industrial by- product hydrogen,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity
+24,LPG(Butane)_fCO2_ibpH2_F T_gm,LPG,H2: Industrial by- product hydrogen,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity
+27,LPG(Butane)_rCO2_ibpH2_F T_gm,LPG,H2: Industrial by- product hydrogen,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Butane),Grid mix electricity
+20,"LPG(Propane)_bCO2_ibpH2
+_FT_gm",LPG,H2: Industrial by- product hydrogen,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity
+14,LPG(Propane)_fCO2_ibpH2_ FT_gm,LPG,H2: Industrial by- product hydrogen,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity
+17,LPG(Propane)_rCO2_ibpH2_ FT_gm,LPG,H2: Industrial by- product hydrogen,Fischer-Tropsch Synthesis and liquefaction,Liquefied Petroleum Gas (Propane),Grid mix electricity
+100,MeOH_bCO2_ibpH2_MS_gm,Methanol,H2: Industrial by- product hydrogen,Methanol Synthesis,Methanol,Grid mix electricity
+94,MeOH_fCO2_ibpH2_MS_gm,Methanol,H2: Industrial by- product hydrogen,Methanol Synthesis,Methanol,Grid mix electricity
+97,MeOH_rCO2_ibpH2_MS_gm,Methanol,H2: Industrial by- product hydrogen,Methanol Synthesis,Methanol,Grid mix electricity
+123,NH3_gmN2_fH2_EL_n,Ammonia,N2: separated with grid mix electricity,Thermochemical Cycles or Electrolysis,Ammonia,Nuclear
+125,NH3_gmN2_ibpH2_EL_n,Ammonia,N2: separated with grid mix electricity,Thermochemical Cycles or Electrolysis,Ammonia,Nuclear
+124,NH3_gmN2_rH2_EL_n,Ammonia,N2: separated with grid mix electricity,Thermochemical Cycles or Electrolysis,Ammonia,Nuclear
+121,NH3_rN2_fH2_HB_gm,Ammonia,N2: separated with renewable electricity,Haber Bosch process,Ammonia,Grid mix electricity
+122,NH3_rN2_ibpH2_HB_gm,Ammonia,N2: separated with renewable electricity,Haber Bosch process,Ammonia,Grid mix electricity
+120,NH3_rN2_rH2_HB_gm,Ammonia,N2: separated with renewable electricity,Haber Bosch process,Ammonia,Grid mix electricity
+112,LH2_EL_n_Liquefied,Hydrogen,Nuclear electricity water,Thermochemical Cycles or Electrolysis and liquefaction,Hydrogen,Nuclear
+9,"MDO/MGO(ULSFO)_f_r_CP
+_gm",Diesel/Gas oil (ULSFO),Recycled carbon,CoProcessing (CP) in refinery,"Co-processed marine fuel (ISO 8217
+Grades DMX, DMA, DMZ
+and DMB
+maximum
+0.10 % S)",Grid mix electricity
+10,"MDO/MGO(VLSFO)_f_r_CP
+_gm",Diesel/Gas oil (VLSFO),Recycled carbon,CoProcessing (CP) in refinery,"Co-processed marine fuel (ISO 8217
+Grades DMX, DMA, DMZ
+and DMB,
+0.10 < S ≤
+0.50%)",Grid mix electricity
+127,Electricity_renewable,Electricity,Renewable,Dedicated Photovoltaic and/or Wind and/or other,Electricity,Renewable electricity
+110,LH2_EL_r_Liquefied,Hydrogen,Renewable electricity water,"Dedicated Photovoltaic and/or Wind and/or other Electrolysis and
+liquefaction",Hydrogen,Renewable electricity
