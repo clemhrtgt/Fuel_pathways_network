@@ -167,7 +167,7 @@ def update_graph(pathways):
         y=emoji_y,
         mode="text",
         text=emoji_text,
-        textfont=dict(size=32),
+        textfont=dict(size=96),
         hoverinfo="text",
         hovertext=emoji_hovertext,
         showlegend=False
