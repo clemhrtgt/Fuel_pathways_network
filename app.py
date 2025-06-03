@@ -71,50 +71,50 @@ def update_graph(pathways):
         if pd.notna(pt) and pd.notna(ft):
             subG.add_edge(pt, ft)
 
-   def get_custom_layout():
-    pos = {}
-    node_groups = {col: set() for col in columns}
-    for _, row in filtered.iterrows():
-        for col in columns:
-            if pd.notna(row[col]):
-                node_groups[col].add(row[col])
-
-   
-    x_map = {
-        "Feedstock Sources": 0,
-        "Energy  used  in  the process": 0,  # Même x que Feedstock
-        "Process Type": 4,
-        "Fuel type": 6
-    }
-
+    def get_custom_layout():
+        pos = {}
+        node_groups = {col: set() for col in columns}
+        for _, row in filtered.iterrows():
+            for col in columns:
+                if pd.notna(row[col]):
+                    node_groups[col].add(row[col])
     
-    feedstock_nodes = sorted(node_groups["Feedstock Sources"])
-    energy_nodes = sorted(node_groups["Energy  used  in  the process"])
-
+       
+        x_map = {
+            "Feedstock Sources": 0,
+            "Energy  used  in  the process": 0,  # Même x que Feedstock
+            "Process Type": 4,
+            "Fuel type": 6
+        }
     
-    combined_nodes = []
-    max_len = max(len(feedstock_nodes), len(energy_nodes))
-    for i in range(max_len):
-        if i < len(feedstock_nodes):
-            combined_nodes.append( (feedstock_nodes[i], "Feedstock Sources") )
-        if i < len(energy_nodes):
-            combined_nodes.append( (energy_nodes[i], "Energy  used  in  the process") )
-
-    y_spacing = 80
- 
-    for j, (node, cat) in enumerate(combined_nodes):
-        x = x_map[cat] * 100
-        y = -j * y_spacing
-        pos[node] = (x, y)
-
-    for col in ["Process Type", "Fuel type"]:
-        nodes = sorted(node_groups[col])
-        for j, node in enumerate(nodes):
-            x = x_map[col] * 100
+        
+        feedstock_nodes = sorted(node_groups["Feedstock Sources"])
+        energy_nodes = sorted(node_groups["Energy  used  in  the process"])
+    
+        
+        combined_nodes = []
+        max_len = max(len(feedstock_nodes), len(energy_nodes))
+        for i in range(max_len):
+            if i < len(feedstock_nodes):
+                combined_nodes.append( (feedstock_nodes[i], "Feedstock Sources") )
+            if i < len(energy_nodes):
+                combined_nodes.append( (energy_nodes[i], "Energy  used  in  the process") )
+    
+        y_spacing = 80
+     
+        for j, (node, cat) in enumerate(combined_nodes):
+            x = x_map[cat] * 100
             y = -j * y_spacing
             pos[node] = (x, y)
-
-    return pos 
+    
+        for col in ["Process Type", "Fuel type"]:
+            nodes = sorted(node_groups[col])
+            for j, node in enumerate(nodes):
+                x = x_map[col] * 100
+                y = -j * y_spacing
+                pos[node] = (x, y)
+    
+        return pos 
 
     pos = get_custom_layout()
 
