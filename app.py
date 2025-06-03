@@ -79,10 +79,10 @@ def update_graph(pathways):
                     node_groups[col].add(row[col])
 
         x_map = {
-            "Feedstock Sources": 0,
-            "Energy  used  in  the process": 0,  # Même x que Feedstock
-            "Process Type": 4,
-            "Fuel type": 6
+            "Feedstock Sources": 1,
+            "Energy  used  in  the process": 1,  # Même x que Feedstock
+            "Process Type": 3,
+            "Fuel type": 5
         }
 
         feedstock_nodes = sorted(node_groups["Feedstock Sources"])
